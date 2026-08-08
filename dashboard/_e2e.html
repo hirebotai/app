@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hirebotai — Dashboard</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages/pages.css">
+</head>
+<body>
+
+  <!-- Background decor -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+  <div class="bg-orb bg-orb-4"></div>
+  <div class="bg-particles" id="bg-particles" aria-hidden="true"></div>
+  <div class="bg-shoot" aria-hidden="true"></div>
+
+  <div id="app">
+
+    <!-- ═══════════════════════════ SIDEBAR ═══════════════════════════ -->
+    <aside id="sidebar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div id="logo-area">
+        <img src="../logo.png" class="logo-icon" alt="HIREBOT AI">
+        <div>
+          <span class="logo-name">HIREBOT AI</span>
+          <span class="logo-ver">v2.0</span>
+        </div>
+      </div>
+
+      <nav id="nav">
+        <div class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </span>
+          <span class="nav-label">Dashboard</span>
+        </div>
+        <div class="nav-item" data-page="practice">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          </span>
+          <span class="nav-label">Practice Interview</span>
+        </div>
+        <div class="nav-item" data-page="resume">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </span>
+          <span class="nav-label">Resumes</span>
+        </div>
+        <div class="nav-item" data-page="cheatsheet">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </span>
+          <span class="nav-label">Cheat Sheet</span>
+        </div>
+        <div class="nav-item" data-page="apikeys">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+          </span>
+          <span class="nav-label">API Keys</span>
+        </div>
+        <div class="nav-item" data-page="hotkeys">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="10" x2="6.01" y2="10"></line><line x1="10" y1="10" x2="10.01" y2="10"></line><line x1="14" y1="10" x2="14.01" y2="10"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><line x1="6" y1="14" x2="6.01" y2="14"></line><line x1="10" y1="14" x2="10.01" y2="14"></line><line x1="14" y1="14" x2="14.01" y2="14"></line><line x1="18" y1="14" x2="18.01" y2="14"></line></svg>
+          </span>
+          <span class="nav-label">Hotkeys</span>
+        </div>
+        <div class="nav-item" data-page="settings">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </span>
+          <span class="nav-label">Settings</span>
+        </div>
+        <div class="nav-item" data-page="history">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </span>
+          <span class="nav-label">History</span>
+        </div>
+        <div class="nav-item" data-page="support">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </span>
+          <span class="nav-label">Support</span>
+        </div>
+      </nav>
+
+      <div id="sidebar-footer">
+        <img src="../logo.png" class="footer-avatar" alt="HIREBOT AI">
+        <div class="footer-info">
+          <div class="fn" id="sidebar-user-name" style="font-size:13px; font-weight:900; white-space:nowrap;">HIREBOT AI V1</div>
+          <div class="fv" id="sidebar-user-email" style="font-size:11px; margin-top:2px; white-space:nowrap; max-width:170px; overflow:hidden; text-overflow:ellipsis;"></div>
+          <div class="fv" id="sidebar-license-text" style="font-size:11px; margin-top:2px; white-space:nowrap;">v1.0 Pro · Trial</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════════════ MAIN ═══════════════════════════ -->
+    <main id="main">
+
+      <!-- ─────────────────── DASHBOARD ─────────────────── -->
+      <section class="page active" id="page-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Dashboard</div>
+            <div class="page-header-subtitle">Your stealth AI assistant, ready to help you ace it.</div>
+          </div>
+          <div class="page-header-actions">
+            <label class="toggle" for="master-power" title="Master power">
+              <input type="checkbox" id="master-power" checked>
+              <div class="toggle-track"></div>
+              <div class="toggle-knob"></div>
+              <span class="toggle-text on" id="master-power-label">Engine On</span>
+            </label>
+            <button class="btn btn-secondary" id="create-shortcut">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+              Create Shortcut
+            </button>
+          </div>
+        </div>
+
+        <!-- Trial banner -->
+        <div class="banner" id="dash-trial-banner" style="display:none;">
+          <div class="banner-content">
+            <div class="banner-icon purple">⏳</div>
+            <div>
+              <div class="banner-text-title">Free Trial Active</div>
+              <div class="banner-text-desc">
+                Time remaining: <b id="dash-trial-timer" style="font-family:var(--font-mono);">—</b>
+              </div>
+            </div>
+          </div>
+          <div class="banner-actions">
+            <button class="btn btn-secondary btn-sm" data-action="settings">Activate License</button>
+          </div>
+        </div>
+
+        <!-- API keys banner -->
+        <div class="banner banner-warning" id="dash-api-banner" style="display:none;">
+          <div class="banner-content">
+            <div class="banner-icon amber">🔑</div>
+            <div>
+              <div class="banner-text-title">API Keys Required</div>
+              <div class="banner-text-desc">Connect Groq or OpenRouter to enable AI features.</div>
+            </div>
+          </div>
+          <div class="banner-actions">
+            <button class="btn btn-primary btn-sm" data-action="apikeys">Add Keys</button>
+          </div>
+        </div>
+
+        <!-- Command-center hero -->
+        <div class="dash-hero">
+          <div class="dash-hero-left">
+            <div class="dash-hero-eyebrow">COMMAND CENTER</div>
+            <h2 class="dash-hero-title" id="dash-greeting">Welcome back</h2>
+            <p class="dash-hero-sub">Your stealth AI assistant is <span class="dash-hero-strong" id="dash-hero-state">armed and ready</span>.</p>
+          </div>
+          <div class="dash-hero-pills">
+            <span class="dash-pill" id="hero-pill-engine">
+              <span class="status-dot status-dot-success" id="hero-engine-dot"></span>
+              Engine <b id="hero-engine-text">LIVE</b>
+            </span>
+            <span class="dash-pill" id="hero-pill-trial">⏳ Trial · <b id="hero-trial-left">—</b></span>
+            <span class="dash-pill">🧠 <b id="hero-provider-count">2</b> providers</span>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="card stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Engine</div>
+              <div class="stat-icon">🛰️</div>
+            </div>
+            <div class="stat-value stat-value-live">
+              <span class="status-dot status-dot-success" id="engine-dot"></span>
+              <span id="engine-live-text">LIVE</span>
+            </div>
+            <div class="stat-sub" id="engine-status">Ready when you are</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Session Time</div>
+              <div class="stat-icon">⏱️</div>
+            </div>
+            <div class="stat-value" id="dash-timer" style="font-family:var(--font-mono);">00:00:00</div>
+            <div class="stat-sub">Elapsed since trial start</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">AI Providers</div>
+              <div class="stat-icon">🧠</div>
+            </div>
+            <div class="stat-value">Ready</div>
+            <div class="stat-sub">Groq · OpenRouter</div>
+            <div class="stat-action">
+              <button class="btn btn-secondary btn-sm" data-action="apikeys">Manage Keys</button>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Interview Room</div>
+              <div class="stat-icon">🎯</div>
+            </div>
+            <div class="stat-value">Practice</div>
+            <div class="stat-sub">AI mock interviews</div>
+            <div class="stat-action">
+              <button class="btn btn-primary btn-sm" data-action="practice">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick start + actions -->
+        <div class="dash-flow">
+          <section class="page-section">
+            <div class="section-head">
+              <h2 class="section-title">Quick Start</h2>
+              <p class="section-description">One-time setup status</p>
+            </div>
+            <div class="qs-list">
+              <div class="qs-row">
+                <div class="qs-label">GROQ</div>
+                <div class="qs-info">
+                  <div class="qs-title" id="qs-groq">NOT SET</div>
+                  <div class="qs-sub" id="qs-groq-sub">Add key to enable</div>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="qs-groq-btn" data-action="apikeys">Add Key</button>
+              </div>
+
+              <div class="qs-row">
+                <div class="qs-label">OPENROUTER</div>
+                <div class="qs-info">
+                  <div class="qs-title" id="qs-or">NOT SET</div>
+                  <div class="qs-sub" id="qs-or-sub">Add key for vision models</div>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="qs-or-btn" data-action="apikeys">Add Key</button>
+              </div>
+
+              <div class="qs-row">
+                <div class="qs-label">RESUME</div>
+                <div class="qs-info">
+                  <div class="qs-title" id="qs-resume">None</div>
+                  <div class="qs-sub" id="qs-resume-sub">No file uploaded</div>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="qs-resume-btn" data-action="resume">Upload</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="page-section">
+            <div class="section-head">
+              <h2 class="section-title">Quick Actions</h2>
+              <p class="section-description">Jump straight into a task</p>
+            </div>
+            <div class="dash-actions">
+              <div class="dash-action-item" data-action="practice">
+              <div class="dash-action-icon">🎯</div>
+              <div class="dash-action-body">
+                <div class="dash-action-title">Practice Interview</div>
+                <div class="dash-action-desc">Mock interviews with AI feedback</div>
+              </div>
+              <span class="dash-action-chevron">›</span>
+            </div>
+            <div class="dash-action-item" data-action="resume">
+              <div class="dash-action-icon">📄</div>
+              <div class="dash-action-body">
+                <div class="dash-action-title">Resume Manager</div>
+                <div class="dash-action-desc">Upload PDFs to tailor questions</div>
+              </div>
+              <span class="dash-action-chevron">›</span>
+            </div>
+            <div class="dash-action-item" data-action="history">
+              <div class="dash-action-icon">📊</div>
+              <div class="dash-action-body">
+                <div class="dash-action-title">Session History</div>
+                <div class="dash-action-desc">Review interviews and transcripts</div>
+              </div>
+              <span class="dash-action-chevron">›</span>
+            </div>
+            <div class="dash-action-item" data-action="settings">
+              <div class="dash-action-icon">⚙️</div>
+              <div class="dash-action-body">
+                <div class="dash-action-title">Settings</div>
+                <div class="dash-action-desc">Hotkeys, HUD, auto-typer, and more</div>
+              </div>
+              <span class="dash-action-chevron">›</span>
+            </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- ─────────────────── PRACTICE ─────────────────── -->
+      <section class="page" id="page-practice">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Practice Interview</div>
+            <div class="page-header-subtitle">Simulate a real technical interview with AI.</div>
+          </div>
+        </div>
+
+        <!-- Setup -->
+        <div id="prac-setup">
+          <div class="card practice-setup-card">
+            <div class="card-p">
+              <h2 class="section-title" style="margin-bottom:4px;">Configure Session</h2>
+              <p class="section-description" style="margin-bottom:24px;">Choose your interview profile to begin.</p>
+
+              <div class="practice-form">
+                <div class="form-group">
+                  <label class="form-label" for="prac-type">Interview Type</label>
+                  <select id="prac-type" class="input">
+                    <option>Technical Coding</option>
+                    <option>Data Structures &amp; Algorithms</option>
+                    <option>System Design</option>
+                    <option>Behavioral</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="prac-diff">Difficulty</label>
+                  <select id="prac-diff" class="input">
+                    <option>Easy</option>
+                    <option selected>Medium</option>
+                    <option>Hard</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="prac-q-count">Number of Questions</label>
+                  <select id="prac-q-count" class="input">
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="7">7</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="flex-direction:row;align-items:center;justify-content:space-between;">
+                  <div>
+                    <div class="form-label" style="margin-bottom:2px;">Use Resume Context</div>
+                    <div style="font-size:12px;color:var(--color-text-faint);">Tailor questions to your uploaded resume</div>
+                  </div>
+                  <label class="toggle" for="prac-resume-toggle">
+                    <input type="checkbox" id="prac-resume-toggle" disabled>
+                    <div class="toggle-track"></div>
+                    <div class="toggle-knob"></div>
+                  </label>
+                </div>
+
+                <button id="start-practice" class="btn btn-primary btn-lg">Start Interview</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Console -->
+        <div id="prac-console" class="hidden">
+          <div class="practice-console">
+            <div class="interviewer-panel card">
+              <div class="interviewer-avatar-wrap">
+                <div class="interviewer-ring" id="prac-interviewer-ring"></div>
+                <div class="interviewer-avatar" style="display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg,#BFDBFE,#DBEAFE);">🤖</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                <div class="interviewer-name">Hirebot AI</div>
+                <div class="interviewer-status" id="prac-interviewer-status">IDLE</div>
+                <div class="audio-wave" id="prac-audio-wave">
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="interview-dialog">
+              <div class="card question-card">
+                <div class="question-label">Question <span id="prac-question-num"></span></div>
+                <div class="question-text" id="prac-prompt-txt">Preparing your session...</div>
+              </div>
+
+              <div class="answer-workspace">
+                <div class="workspace-tabs">
+                  <button class="workspace-tab active" id="tab-btn-text">✍️ Text</button>
+                  <button class="workspace-tab" id="tab-btn-code">💻 Code</button>
+                </div>
+
+                <div class="workspace-tab-panel active" id="prac-workspace-text">
+                  <div class="answer-text-area">
+                    <div class="answer-text-header">
+                      <span class="answer-text-label">Your Answer</span>
+                    </div>
+                    <textarea id="prac-answer-inp" class="input answer-textarea" placeholder="Type your answer here..."></textarea>
+                  </div>
+                </div>
+
+                <div class="workspace-tab-panel" id="prac-workspace-code">
+                  <div class="answer-code-area">
+                    <div class="answer-code-header">
+                      <span class="answer-code-label">Your Code</span>
+                    </div>
+                    <textarea id="prac-code-inp" class="input code-editor" placeholder="// Write your solution here" spellcheck="false"></textarea>
+                  </div>
+                </div>
+
+                <div class="workspace-actions">
+                  <button id="prac-mic-btn" class="btn btn-secondary">🎙️ Start Speaking</button>
+                  <div style="display:flex;gap:8px;">
+                    <button id="quit-practice" class="btn btn-ghost">Quit</button>
+                    <button id="prac-submit-btn" class="btn btn-primary">Submit Answer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="prac-results" class="hidden">
+          <div class="card results-card">
+            <div class="results-header">
+              <div>
+                <div class="results-title">Session Complete</div>
+                <div class="results-subtitle">Here's how you performed</div>
+              </div>
+              <div class="score-display">
+                <div class="score-label">Score</div>
+                <div class="score-value" id="prac-score-val">—</div>
+              </div>
+            </div>
+            <div class="results-analysis">
+              <div class="analysis-label">Analysis</div>
+              <div class="analysis-text" id="prac-report-analysis">Evaluating your performance...</div>
+            </div>
+            <div class="results-breakdown">
+              <div class="breakdown-section strengths">
+                <h4>Strengths</h4>
+                <div class="breakdown-list" id="prac-strengths"></div>
+              </div>
+              <div class="breakdown-section weaknesses">
+                <h4>Areas to Improve</h4>
+                <div class="breakdown-list" id="prac-weaknesses"></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:var(--space-5);border-top:1px solid var(--color-border);margin-top:var(--space-5);">
+              <button id="prac-restart" class="btn btn-secondary">Practice Again</button>
+              <button id="prac-dashboard" class="btn btn-primary">Back to Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── RESUME ─────────────────── -->
+      <section class="page" id="page-resume">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Resumes</div>
+            <div class="page-header-subtitle">Upload up to 3 resumes. The active one is used to tailor interview questions.</div>
+          </div>
+        </div>
+
+        <div class="resume-overview" id="resume-overview"></div>
+        <div id="resume-grid" class="resume-grid"></div>
+
+        <div class="resume-tip">
+          <div class="resume-tip-ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"></path><path d="M9 22h6M10 18h4"></path></svg>
+          </div>
+          <div class="resume-tip-body">
+            <div class="resume-tip-title">How your resume powers interviews</div>
+            <div class="resume-tip-text">Your active resume is used to tailor interview questions, practice feedback, and scorecards to your actual experience. Keep it fresh for the most relevant sessions.</div>
+          </div>
+          <div class="resume-tip-steps">
+            <div class="resume-tip-step"><span>1</span>Upload a PDF or TXT resume — max 10MB</div>
+            <div class="resume-tip-step"><span>2</span>Mark it as active with one click</div>
+            <div class="resume-tip-step"><span>3</span>Start a practice interview, fully tailored</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── CHEATSHEET ─────────────────── -->
+      <section class="page" id="page-cheatsheet">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Cheat Sheet</div>
+            <div class="page-header-subtitle">Notes shown in the HUD overlay when you press your cheat sheet hotkey.</div>
+          </div>
+        </div>
+
+        <div class="cheat-hint-strip">
+          <span class="cheat-hint">
+            <span class="keycap">Alt</span><span class="keycap-plus">+</span><span class="keycap">N</span>
+            <span class="cheat-hint-text">Press to toggle the HUD overlay</span>
+          </span>
+          <span class="cheat-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span class="cheat-hint-text">Stored locally, never leaves your device</span>
+          </span>
+        </div>
+
+        <div class="card cheatsheet-editor">
+          <div class="editor-toolbar">
+            <button class="editor-toolbar-btn" id="cheat-save" title="Save">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            </button>
+            <button class="editor-toolbar-btn" id="cheat-copy" title="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+            <div class="editor-toolbar-divider"></div>
+            <button class="editor-toolbar-btn" id="cheat-clear" title="Clear">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+            <span class="editor-file">cheatsheet.txt</span>
+            <span class="editor-autosave" id="cheat-autosave">Auto-saves</span>
+          </div>
+          <div class="editor-wrapper">
+            <div class="line-numbers" id="line-nums">1</div>
+            <textarea id="cheat-ed" class="editor-textarea" spellcheck="false"></textarea>
+            <div class="cheat-empty" id="cheat-empty">
+              <div class="cheat-empty-icon">✍️</div>
+              <div class="cheat-empty-title">Your cheat sheet is empty</div>
+              <div class="cheat-empty-desc">Write quick notes, formulas, or talking points. They'll appear in the floating HUD overlay when you press your hotkey.</div>
+              <div class="cheat-empty-cta">Start typing — everything auto-saves</div>
+            </div>
+          </div>
+          <div class="editor-statusbar">
+            <span class="editor-status-item" id="cheat-stats">0 lines · 0 chars</span>
+            <span class="editor-status-item" id="cheat-saved-state">Ready</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── API KEYS ─────────────────── -->
+      <section class="page" id="page-apikeys">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">API Keys</div>
+            <div class="page-header-subtitle">Connect your AI provider to power the HUD. Keys are stored encrypted and never exposed to this page.</div>
+          </div>
+        </div>
+        <div class="card license-card">
+          <div class="card-p">
+            <div class="license-head">
+              <div>
+                <h2 class="section-title" style="margin-bottom:4px;">License</h2>
+                <p class="section-description">Activate your Hirebotai license or extend your trial.</p>
+              </div>
+              <span class="license-badge" id="license-badge">…</span>
+            </div>
+
+            <div class="license-row">
+              <div class="license-input-wrap">
+                <input type="text" class="input" id="license-key-input" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" spellcheck="false">
+              </div>
+              <button class="btn btn-primary" id="license-activate">Activate Key</button>
+              <button class="btn btn-secondary" id="license-extend">Extend Trial</button>
+            </div>
+            <div class="license-status" id="license-status"></div>
+          </div>
+        </div>
+
+        <div id="provider-grid" class="provider-grid"></div>
+      </section>
+
+      <!-- ─────────────────── HOTKEYS ─────────────────── -->
+      <section class="page" id="page-hotkeys">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Hotkeys</div>
+            <div class="page-header-subtitle">Global shortcuts that work anywhere, even in fullscreen apps.</div>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-secondary" id="hotkeys-copy">Copy List</button>
+            <button class="btn btn-danger" id="hotkeys-reset">Reset Defaults</button>
+          </div>
+        </div>
+        <div class="card hotkeys-table" id="hotkeys-table"></div>
+      </section>
+
+      <!-- ─────────────────── SETTINGS ─────────────────── -->
+      <section class="page" id="page-settings">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Settings</div>
+            <div class="page-header-subtitle">Customize how Hirebotai behaves.</div>
+          </div>
+        </div>
+        <div id="settings-grid" class="settings-grid"></div>
+      </section>
+
+      <!-- ─────────────────── HISTORY ─────────────────── -->
+      <section class="page" id="page-history">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">History</div>
+            <div class="page-header-subtitle">Browse past interviews, screen captures, and audio transcripts.</div>
+          </div>
+        </div>
+        <div class="history-shell">
+          <div class="history-rail">
+            <div class="history-rail-title">Library</div>
+            <button class="history-tab active" data-category="interview">
+              <span class="history-tab-ic">🎓</span>
+              <span class="history-tab-lbl">Interview</span>
+            </button>
+            <button class="history-tab" data-category="screen">
+              <span class="history-tab-ic">📸</span>
+              <span class="history-tab-lbl">Screen</span>
+            </button>
+            <button class="history-tab" data-category="practice">
+              <span class="history-tab-ic">🎯</span>
+              <span class="history-tab-lbl">Practice</span>
+            </button>
+            <button class="history-tab" data-category="audio">
+              <span class="history-tab-ic">🎙️</span>
+              <span class="history-tab-lbl">Audio</span>
+            </button>
+            <div class="history-rail-foot">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+              <span>Sessions are logged when "Log Session History" is enabled in Settings.</span>
+            </div>
+          </div>
+          <div class="history-list" id="history-list"></div>
+          <div class="history-detail" id="history-detail">
+            <div class="empty-state" style="flex:1;">
+              <div class="empty-state-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg>
+              </div>
+              <div class="empty-state-title">Select a Session</div>
+              <div class="empty-state-message">Click a session from the list to view details.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── SUPPORT ─────────────────── -->
+      <section class="page" id="page-support">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Support</div>
+            <div class="page-header-subtitle">Need help? We're one message away.</div>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-secondary" id="support-copy-diagnostics">Copy Diagnostics</button>
+          </div>
+        </div>
+
+        <div class="support-hero">
+          <div class="support-hero-title">How can we help?</div>
+          <div class="support-hero-sub">Search guides, browse the FAQ, or talk to a human.</div>
+          <div class="support-search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="input" id="support-search-input" placeholder="Search docs, hotkeys, troubleshooting...">
+            <span class="support-search-kbd"><span class="keycap">Ctrl</span><span class="keycap-plus">+</span><span class="keycap">K</span></span>
+          </div>
+          <div class="support-hero-chips">
+            <button class="chip" data-support-action="docs">🚀 Quick start</button>
+            <button class="chip" data-support-action="docs">⌨️ Hotkeys guide</button>
+            <button class="chip" data-support-action="docs">🔧 Troubleshooting</button>
+            <button class="chip" data-support-action="changelog">🔄 What's new</button>
+          </div>
+          <div class="support-status">
+            <span class="support-status-item"><span class="status-dot status-dot-success"></span> All systems operational</span>
+            <span class="support-status-item">Version 2.0.0</span>
+            <span class="support-status-item">Avg. reply under 24h</span>
+          </div>
+        </div>
+
+        <div class="support-section-title">Reach us</div>
+        <div class="support-grid">
+          <div class="card support-card accent-blue" data-support-action="docs">
+            <div class="support-icon docs">📚</div>
+            <div class="support-content">
+              <div class="support-title">Documentation</div>
+              <div class="support-desc">Guides, hotkey reference, and troubleshooting tips.</div>
+              <span class="provider-link">Open docs →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-indigo" data-support-action="discord">
+            <div class="support-icon discord">💬</div>
+            <div class="support-content">
+              <div class="support-title">Discord Community</div>
+              <div class="support-desc">Join the community for tips, updates, and help.</div>
+              <span class="provider-link">Join Discord →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-red" data-support-action="email">
+            <div class="support-icon email">✉️</div>
+            <div class="support-content">
+              <div class="support-title">Email Support</div>
+              <div class="support-desc">Reach the team directly at hello@hirebotai.in.</div>
+              <span class="provider-link">Send an email →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-cyan" data-support-action="twitter">
+            <div class="support-icon twitter">🐦</div>
+            <div class="support-content">
+              <div class="support-title">X / Twitter</div>
+              <div class="support-desc">Follow for announcements and feature news.</div>
+              <span class="provider-link">Follow us →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-green" data-support-action="github">
+            <div class="support-icon github">🐙</div>
+            <div class="support-content">
+              <div class="support-title">GitHub</div>
+              <div class="support-desc">Browse the project and report issues.</div>
+              <span class="provider-link">Open repository →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-violet" data-support-action="changelog">
+            <div class="support-icon changelog">🚀</div>
+            <div class="support-content">
+              <div class="support-title">Changelog</div>
+              <div class="support-desc">See what's new in the latest releases.</div>
+              <span class="provider-link">View changelog →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="support-section-title">Frequently asked questions</div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Where does my cheat sheet appear?</summary>
+            <div class="faq-body">Press <span class="keycap">Alt</span><span class="keycap-plus">+</span><span class="keycap">N</span> anywhere to toggle the HUD overlay. Your notes render in the floating HUD window and auto-save as you type.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Which API key do I need for screen capture?</summary>
+            <div class="faq-body">OpenRouter or Gemini — both support vision models. Groq is text-only and won't power screen capture, so pair it with a vision provider.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Hotkeys stopped working, what now?</summary>
+            <div class="faq-body">Make sure Master Power is on, and no other app is bound to the same combination. Reassign the shortcut from the Hotkeys page.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I keep my trial active?</summary>
+            <div class="faq-body">Use "Extend Trial" on the API Keys page to add time, or activate a license key to unlock all features permanently.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Where is my session history stored?</summary>
+            <div class="faq-body">Every mock interview and practice run is saved locally under your profile. Open the History page to replay transcripts, review scorecards, or copy a session's diagnostics.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do interview questions use my resume?</summary>
+            <div class="faq-body">Upload a resume and set it as active on the Resume page, then flip on "Use my resume" before starting a session. The AI will tailor questions to your listed skills and experience.</div>
+          </details>
+          <details class="faq-item">
+            <summary>What happens when my trial expires?</summary>
+            <div class="faq-body">The engine pauses and the dashboard shows a "trial expired — license required" state. Your notes, history, and settings stay intact, so nothing is lost once you extend the trial or activate a key.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I switch the AI provider?</summary>
+            <div class="faq-body">Open the API Keys page and enable your preferred provider — OpenRouter, Gemini, or Groq. Screen capture needs a vision-capable provider (OpenRouter or Gemini), while text chat can run on any.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I replay or export a practice session?</summary>
+            <div class="faq-body">Yes. Open the session from the History page to scroll the full transcript, then use "Copy Diagnostics" on the Support page to export the details for review or support.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How many questions can I set per interview?</summary>
+            <div class="faq-body">Pick 3 to 30 questions when configuring a session. Higher counts give a broader range of topics but take longer — 5 to 10 is a good balance for most practice runs.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Does the HUD cheat sheet work everywhere?</summary>
+            <div class="faq-body">The HUD overlay works on any screen where you've enabled it. Toggle it per-tab from the extension popup, and adjust the shortcut from the Hotkeys page if it conflicts with another app.</div>
+          </details>
+        </div>
+
+        <div class="support-bottom">
+          <div class="support-bottom-info">
+            <div class="support-bottom-title">Still stuck?</div>
+            <div class="support-bottom-sub">The fastest way to a fix is an email with your diagnostics attached.</div>
+          </div>
+          <div class="support-bottom-actions">
+            <button class="btn btn-secondary" data-support-action="email">✉️ Email Support</button>
+            <button class="btn btn-primary" id="support-copy-diagnostics">Copy Diagnostics</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts (classic scripts; each file exposes window.* globals) -->
+  <script src="js/background.js"></script>
+  <pre id="e2e-report" style="display:none;"></pre><script>
+(function () {
+  window.__errors = [];
+  window.addEventListener('error', function (e) { window.__errors.push(String(e.message || e.error)); });
+  window.addEventListener('unhandledrejection', function (e) { window.__errors.push('REJECT: ' + String(e.reason && e.reason.message || e.reason)); });
+
+  var now = Date.now();
+  var settings = {
+    master_power: true,
+    auto_start: true,
+    no_tray: false,
+    log_history: true,
+    hud_opacity: 80,
+    hud_font_size: 'Medium',
+    hud_answer_color: '#34D399',
+    hud_auto_hide: 'Never',
+    typing_speed: 300,
+    practice_speech_rate: '1.0',
+    practice_voice_name: 'Default',
+    trial_start: now - 60 * 1000,
+    license_key: '',
+    groq_api_key_set: true,
+    openrouter_api_key_set: true,
+    gemini_api_key_set: false,
+    active_resume_slot: 0,
+    resume_slot_0_name: 'abcdefghijklmnopqr',
+    resume_slot_0_content: 'abcdefghijklmnopqr',
+    resume_slot_1_name: '',
+    resume_slot_1_content: '',
+    resume_slot_2_name: '',
+    resume_slot_2_content: '',
+    cheat_sheet_text: 'Sample cheat sheet.',
+    hotkey_silent: 'Alt+O', hotkey_capture: 'Alt+S', hotkey_audio: 'Alt+A',
+    hotkey_peek: 'Alt+H', hotkey_sticky: 'Alt+K', hotkey_ghost: 'Alt+T',
+    hotkey_search: 'Alt+Q', hotkey_type: 'Alt+P', hotkey_interview: 'Alt+I',
+    hotkey_minimal: 'Alt+M', hotkey_clear: 'Alt+C', hotkey_exit: 'Alt+E',
+    hotkey_cheat: 'Alt+N', hotkey_scroll_up: 'Alt+Up', hotkey_scroll_dn: 'Alt+Down'
+  };
+  function ok(v) { return Promise.resolve(v); }
+  window.pywebview = {
+    api: {
+      get_all_settings: function () { return ok(settings); },
+      get_setting: function (k) { return ok(settings[k] !== undefined ? settings[k] : null); },
+      set_setting: function (k, v) { settings[k] = v; return ok(true); },
+      get_resume_slots: function () {
+        return ok([
+          { name: 'Resume A.pdf', preview: 'Frontend engineer with 5 years of experience building dashboards.', active: true },
+          { name: '', preview: '', active: false },
+          { name: '', preview: '', active: false }
+        ]);
+      },
+      get_resume_content: function (s) { return ok(settings['resume_slot_' + s + '_content'] || ''); },
+      get_sessions: function (category) {
+        return ok([
+          { id: 42, date: 'Aug 05, 2026', time: '14:30', dur: '12 min Â· Rating: Excellent', type: (category || 'interview').toUpperCase(), title: 'Session 42', meta: 'Duration: 12 min | Rating: Excellent', badge: 'AI Interview' },
+          { id: 41, date: 'Aug 04, 2026', time: '09:15', dur: 'Active Session Â· Rating: No Rating', type: (category || 'interview').toUpperCase(), title: 'Session 41', meta: 'Duration: Active Session | Rating: No Rating', badge: 'AI Interview' }
+        ]);
+      },
+      get_session_logs: function () {
+        var lines = [];
+        for (var i = 0; i < 80; i++) {
+          lines.push('[00:' + String(i % 60).padStart(2, '0') + '] [Interviewer]: Tell me about your experience with distributed systems in this mock interview session number ' + i);
+          lines.push('[00:' + String(i % 60).padStart(2, '0') + '] [Candidate]: I have worked on scalable microservices, load balancing, and event-driven architectures for the past several years.');
+        }
+        return ok(lines.join('\n'));
+      },
+      test_api_key: function () { return ok({ success: true }); },
+      create_desktop_shortcut: function () { return ok({ success: true }); },
+      activate_license_key: function () { return ok({ success: true }); },
+      extend_trial: function () { return ok({ success: true }); },
+      upload_resume: function () { return ok({ success: true }); },
+      set_active_resume: function () { return ok(true); },
+      delete_resume: function () { return ok(true); },
+      delete_session: function () { return ok(true); },
+      generate_scorecard_from_history: function () { return ok({ success: true, score: 85 }); },
+      export_session_transcript: function () { return ok({ success: true }); },
+      start_new_session_from_js: function () { return ok(1); },
+      log_practice_interaction: function () { return ok(true); },
+      save_practice_scorecard: function () { return ok(true); },
+      get_interview_response: function () { return ok({ question: 'Explain closures.', text: 'A closure is...' }); },
+      get_practice_report: function () { return ok({ score: 85, analysis: 'Good', strengths: [], weaknesses: [] }); },
+      set_practice_security: function () { return ok(true); },
+      factory_reset: function () { return ok({ success: true }); },
+      open_url: function () { return ok(true); }
+    }
+  };
+})();
+</script>
+  <script src="js/api.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/components/index.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/practice.js"></script>
+  <script src="js/pages/resume.js"></script>
+  <script src="js/pages/cheatsheet.js"></script>
+  <script src="js/pages/apikeys.js"></script>
+  <script src="js/pages/hotkeys.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/history.js"></script>
+  <script src="js/pages/support.js"></script>
+
+  <script>
+    (function () {
+      var router = window.Router;
+
+      // Register all pages
+      router.register('dashboard', window.DashboardPage);
+      router.register('practice', window.PracticePage);
+      router.register('resume', window.ResumePage);
+      router.register('cheatsheet', window.CheatsheetPage);
+      router.register('apikeys', window.ApiKeysPage);
+      router.register('hotkeys', window.HotkeysPage);
+      router.register('settings', window.SettingsPage);
+      router.register('history', window.HistoryPage);
+      router.register('support', window.SupportPage);
+
+      // Sidebar collapse
+      document.getElementById('sidebar-toggle').addEventListener('click', function () {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+      });
+
+      // Nav click navigation
+      document.querySelectorAll('.nav-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+          router.go(item.dataset.page);
+        });
+      });
+
+      // Initial route from hash
+      var hash = window.location.hash.slice(1).split('?')[0];
+      if (hash && router.routes.has(hash)) {
+        router.go(hash);
+      } else {
+        router.go('dashboard');
+      }
+    })();
+  </script>
+<script>
+(function () {
+  var report = [];
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  async function nav(page) { window.goTo(page); await sleep(120); }
+  function txt(id) { var el = document.getElementById(id); return el ? el.textContent.trim() : 'MISSING'; }
+  function count(sel) { return document.querySelectorAll(sel).length; }
+  function style(el, prop) { if (!el) return 'MISSING'; return getComputedStyle(el)[prop]; }
+
+  async function run() {
+    await sleep(120);
+
+    // Screenshot mode: ?shot=<page> â†’ nav there and stop (still capture errors)
+    var shot = new URLSearchParams(window.location.search).get('shot');
+    if (shot) {
+      if (shot !== 'dashboard') await nav(shot);
+      if (shot === 'history') {
+        var si = document.querySelector('.session-item');
+        if (si) { si.click(); await sleep(250); }
+      }
+      if (shot === 'practice-quit') {
+        await sleep(200);
+        document.getElementById('start-practice').click();
+        await sleep(300);
+        document.getElementById('quit-practice').click();
+        await sleep(300);
+      }
+      if (new URLSearchParams(window.location.search).get('emptyshot')) {
+        var sed = document.getElementById('cheat-ed');
+        if (sed) { sed.value = ''; if (window.CheatsheetPage) { CheatsheetPage.updateLineNumbers(); CheatsheetPage.updateEditorState(); } }
+      }
+      var errs = window.__errors || [];
+      var pre = document.getElementById('e2e-report');
+      pre.textContent = 'SHOT-MODE errors=' + errs.length + (errs.length ? ' :: ' + errs.join(' || ') : '');
+      document.title = 'E2E-DONE';
+      return;
+    }
+
+    await nav('dashboard');
+    report.push('dash qs-groq=' + txt('qs-groq'));
+    report.push('dash engine=' + txt('engine-live-text'));
+    report.push('dash engineStatus=' + txt('engine-status'));
+    report.push('dash trialBanner=' + style(document.getElementById('dash-trial-banner'), 'display'));
+    report.push('dashHero=' + count('.dash-hero'));
+    report.push('heroPills=' + count('.dash-pill'));
+    report.push('heroGreeting=' + txt('dash-greeting'));
+    report.push('heroEngine=' + txt('hero-engine-text'));
+    report.push('heroProviders=' + txt('hero-provider-count'));
+    report.push('heroTrial=' + txt('hero-trial-left'));
+    report.push('statIcons=' + count('.stat-icon'));
+    var dotEl = document.querySelector('.status-dot-success');
+    report.push('statusDotBg=' + (dotEl ? style(dotEl, 'backgroundColor') : 'missing'));
+    report.push('statusDotSize=' + (dotEl ? style(dotEl, 'width') : 'missing'));
+    report.push('dashFlowCols=' + style(document.querySelector('.dash-flow'), 'gridTemplateColumns'));
+    report.push('dash resume=' + txt('qs-resume'));
+    report.push('dash resumeSub=' + txt('qs-resume-sub'));
+    report.push('stats borderTop=' + style(document.querySelector('.stats-grid'), 'borderTopWidth'));
+    report.push('body bg=' + style(document.body, 'backgroundColor'));
+    report.push('orbs=' + count('.bg-orb'));
+    report.push('gridPattern=' + count('.grid-pattern'));
+    report.push('particles=' + count('.bg-particle'));
+    report.push('shoot=' + count('.bg-shoot'));
+    var p1 = document.querySelector('.bg-particle');
+    report.push('particleAnim=' + (p1 ? style(p1, 'animationName') : 'missing'));
+    var card = document.querySelector('.page-section');
+    report.push('card bg=' + style(card, 'backgroundColor'));
+    report.push('card shadow=' + style(card, 'boxShadow'));
+    report.push('card borderTop=' + style(card, 'borderTopWidth'));
+    report.push('card radius=' + style(card, 'borderRadius'));
+    report.push('qsRow borderBottom=' + style(document.querySelector('.qs-row'), 'borderBottomWidth'));
+    report.push('banner border=' + style(document.querySelector('.banner'), 'borderTopWidth'));
+    var stat = document.querySelector('.stat-card');
+    report.push('statCard bg=' + style(stat, 'backgroundColor'));
+    report.push('statCard borderTop=' + style(stat, 'borderTopWidth'));
+    var sb = document.getElementById('sidebar');
+    report.push('sidebar bg=' + style(sb, 'backgroundColor'));
+    report.push('sidebar blur=' + style(sb, 'backdropFilter'));
+    var logoTop = document.querySelector('#logo-area .logo-icon');
+    var logoFoot = document.querySelector('#sidebar-footer .footer-avatar');
+    report.push('logoTopTag=' + (logoTop ? logoTop.tagName.toLowerCase() : 'missing'));
+    report.push('logoTopSrc=' + (logoTop ? logoTop.getAttribute('src') : 'missing'));
+    report.push('logoTopLoaded=' + (logoTop ? (logoTop.complete && logoTop.naturalWidth > 0) : 'missing'));
+    report.push('logoFootTag=' + (logoFoot ? logoFoot.tagName.toLowerCase() : 'missing'));
+    report.push('logoFootSrc=' + (logoFoot ? logoFoot.getAttribute('src') : 'missing'));
+    report.push('logoFootLoaded=' + (logoFoot ? (logoFoot.complete && logoFoot.naturalWidth > 0) : 'missing'));
+    var logoNameEl = document.querySelector('.logo-name');
+    var footerNameEl = document.querySelector('.footer-info .fn');
+    report.push('logoName=' + (logoNameEl ? logoNameEl.textContent.trim() : 'missing'));
+    report.push('footerName=' + (footerNameEl ? footerNameEl.textContent.trim() : 'missing'));
+    report.push('logoIconBg=' + (logoTop ? style(logoTop, 'backgroundColor') : 'missing'));
+    report.push('footerAvatarBg=' + (logoFoot ? style(logoFoot, 'backgroundColor') : 'missing'));
+
+    await nav('practice');
+    report.push('practiceSetup=' + style(document.getElementById('prac-setup'), 'display'));
+    // Issue 1: select menus must be visible on dark bg (appearance none + styled options)
+    var selType = document.getElementById('prac-type');
+    report.push('selectAppearance=' + style(selType, 'appearance'));
+    report.push('selectBg=' + style(selType, 'backgroundColor'));
+    report.push('selectColor=' + style(selType, 'color'));
+    var selOpt = selType.querySelector('option');
+    report.push('selectOptionBg=' + style(selOpt, 'backgroundColor'));
+    report.push('selectOptionColor=' + style(selOpt, 'color'));
+    report.push('selectChevron=' + style(selType, 'backgroundImage').slice(0, 30));
+    // Issue 2: question count must offer up to 30
+    var qSel = document.getElementById('prac-q-count');
+    var qOpts = qSel ? qSel.querySelectorAll('option') : [];
+    report.push('qCountOptions=' + qOpts.length);
+    report.push('qCountMax=' + (qOpts.length ? qOpts[qOpts.length - 1].value : 'none'));
+
+    // Issue 3: Quit button flow â€” start session, quit, confirm modal, back to setup
+    document.getElementById('start-practice').click();
+    await sleep(400);
+    report.push('consoleVisible=' + style(document.getElementById('prac-console'), 'display'));
+    document.getElementById('quit-practice').click();
+    // Poll for the modal to gain the 'open' class (rAF-applied; headless renders are sparse)
+    var qm = null;
+    var gotOpen = 'no';
+    for (var qi = 0; qi < 20; qi++) {
+      await sleep(100);
+      qm = document.querySelector('.modal-overlay');
+      if (qm && qm.className.indexOf('open') > -1) { gotOpen = 'yes'; break; }
+    }
+    report.push('quitModal=' + (qm ? 'present:' + style(qm, 'position') + '/' + style(qm, 'visibility') + '/' + style(qm, 'opacity') : 'missing'));
+    report.push('quitModalOpenClass=' + gotOpen);
+    report.push('quitModalTitle=' + (qm ? (qm.querySelector('.modal-title') ? qm.querySelector('.modal-title').textContent.trim() : 'none') : 'missing'));
+    var qc = qm ? qm.querySelector('[data-action="confirm"]') : null;
+    report.push('quitConfirmBtn=' + (qc ? 'present' : 'missing'));
+    if (qc) qc.click();
+    await sleep(700);
+    report.push('quitReturnsSetup=' + style(document.getElementById('prac-setup'), 'display'));
+    report.push('quitOverlayCleared=' + (document.querySelector('.modal-overlay') ? 'no' : 'yes'));
+    report.push('bodyOverflowLock=' + style(document.body, 'overflow'));
+
+    await nav('apikeys');
+    report.push('providers=' + count('.provider-card'));
+    var pc = document.querySelector('.provider-card');
+    report.push('providerCard bg=' + style(pc, 'backgroundColor'));
+    report.push('providerCard borderTop=' + style(pc, 'borderTopWidth'));
+    var lc = document.querySelector('.license-card');
+    report.push('licenseBadge=' + txt('license-badge'));
+    report.push('licenseCard bg=' + style(lc, 'backgroundImage'));
+    report.push('licenseBadge class=' + (document.getElementById('license-badge') ? document.getElementById('license-badge').className : 'missing'));
+    var li = document.getElementById('license-key-input');
+    report.push('licenseInput=' + (li ? 'present' : 'missing'));
+    // License must render ABOVE the provider cards
+    var gridEl = document.querySelector('.provider-grid');
+    report.push('licenseOnTop=' + (lc.compareDocumentPosition(gridEl) & Node.DOCUMENT_POSITION_FOLLOWING ? 'yes' : 'no'));
+
+    // Modal.confirm must resolve true when confirm clicked (was always false)
+    var confirmResult = 'unresolved';
+    window.Modal.confirm('e2e test', 'E2E', { confirmText: 'OK' }).then(function (v) { confirmResult = String(v); });
+    await sleep(300);
+    var allModals = document.querySelectorAll('.modal-overlay');
+    var cfmBtn = allModals.length ? allModals[allModals.length - 1].querySelector('[data-action="confirm"]') : null;
+    report.push('confirmBtn=' + (cfmBtn ? 'present' : 'missing'));
+    report.push('modalOpenClass=' + (allModals.length ? (allModals[allModals.length - 1].className.indexOf('open') > -1 ? 'yes' : 'no') : 'missing'));
+    if (cfmBtn) cfmBtn.click();
+    await sleep(700);
+    report.push('modalConfirm=' + confirmResult);
+    report.push('modalCleared=' + (document.querySelectorAll('.modal-overlay').length === 0 ? 'yes' : 'no'));
+
+    await nav('resume');
+    report.push('resumeCards=' + count('.resume-card'));
+    var rcs = document.querySelectorAll('.resume-card');
+    var heights = Array.prototype.map.call(rcs, function (r) { return r.offsetHeight; });
+    report.push('resumeHeights=' + heights.join(','));
+    var rc = document.querySelector('.resume-card');
+    report.push('resumeCard bg=' + style(rc, 'backgroundColor'));
+    report.push('resumeCard borderTop=' + style(rc, 'borderTopWidth'));
+    report.push('resumeActive=' + count('.resume-card.active'));
+    report.push('resumeStats=' + count('.resume-stat'));
+    report.push('resumeTip=' + count('.resume-tip'));
+    report.push('resumeTipSteps=' + count('.resume-tip-step'));
+    var so = document.getElementById('resume-overview');
+    report.push('resumeOverview text=' + (so ? so.textContent.replace(/\s+/g, ' ').trim() : 'missing'));
+
+    await nav('cheatsheet');
+    var ed = document.getElementById('cheat-ed');
+    report.push('cheat len=' + (ed ? ed.value.length : -1));
+    report.push('cheatEmpty=' + style(document.getElementById('cheat-empty'), 'display'));
+    report.push('cheatStats=' + txt('cheat-stats'));
+    report.push('cheatHints=' + count('.cheat-hint'));
+
+    await nav('hotkeys');
+    report.push('hotkeys=' + count('.hotkey-row'));
+    report.push('keycaps=' + count('.keycap'));
+
+    await nav('settings');
+    report.push('settingsRows=' + count('.setting-row'));
+    report.push('settingsCards=' + count('.settings-card'));
+    var sc = document.querySelector('.settings-card');
+    report.push('settingsCard bg=' + style(sc, 'backgroundImage'));
+    report.push('settingsCard borderTop=' + style(sc, 'borderTopWidth'));
+
+    await nav('dashboard');
+    report.push('masterLabel=' + txt('master-power-label'));
+    var kn = document.querySelector('#master-power ~ .toggle-knob');
+    report.push('toggleKnob bg=' + style(kn, 'backgroundColor'));
+    report.push('toggleKnob transform=' + style(kn, 'transform'));
+    report.push('toggleText class=' + (document.getElementById('master-power-label') ? document.getElementById('master-power-label').className : 'missing'));
+
+    await nav('history');
+    report.push('history children=' + document.getElementById('history-list').children.length);
+    var hl = document.querySelector('.history-shell');
+    report.push('historyLayout bg=' + style(hl, 'backgroundColor'));
+    report.push('historyLayout borderTop=' + style(hl, 'borderTopWidth'));
+    report.push('historyRailTabs=' + count('.history-rail .history-tab'));
+    report.push('historyListHead=' + count('.history-list-head'));
+    report.push('historyListCount=' + (document.querySelector('.history-list-count') ? document.querySelector('.history-list-count').textContent.trim() : 'missing'));
+    var esi = document.querySelector('.empty-state-icon');
+    report.push('emptyStateIcon bg=' + style(esi, 'backgroundImage'));
+    report.push('emptyStateIcon border=' + style(esi, 'borderTopWidth'));
+    report.push('emptyStateTitle font=' + style(document.querySelector('.empty-state-title'), 'fontSize'));
+
+    // Functional: clicking a category tab must switch active state without errors
+    document.querySelector('.history-tab[data-category="practice"]').click();
+    await sleep(150);
+    var activeTab = document.querySelector('.history-tab.active');
+    report.push('historyTabActive=' + (activeTab ? activeTab.dataset.category : 'none'));
+    report.push('historyCat=' + (window.Store ? Store.get('historyCategory') : 'no-store'));
+    report.push('historySessionItems=' + count('#history-list .session-item'));
+    var firstItem = document.querySelector('#history-list .session-item');
+    report.push('historyFirstId=' + (firstItem ? firstItem.dataset.sessionId : 'none'));
+    var firstDate = document.querySelector('#history-list .session-date');
+    report.push('historyFirstDate=' + (firstDate ? firstDate.textContent.trim() : 'none'));
+
+    // Click first session â†’ detail must render logs without errors
+    if (firstItem) firstItem.click();
+    await sleep(150);
+    report.push('historyDetailHead=' + (document.querySelector('#history-detail .detail-header h3') ? document.querySelector('#history-detail .detail-header h3').textContent.trim() : 'none'));
+    report.push('historyLogText=' + (document.getElementById('history-detail') ? document.getElementById('history-detail').textContent.replace(/\s+/g, ' ').trim().slice(0, 60) : 'none'));
+    var sl = document.querySelector('.sess-log');
+    if (sl) {
+      report.push('sessLogClientH=' + sl.clientHeight);
+      report.push('sessLogScrollH=' + sl.scrollHeight);
+      report.push('sessLogOverflowY=' + getComputedStyle(sl).overflowY);
+      report.push('sessLogScrollable=' + (sl.scrollHeight > sl.clientHeight + 5 ? 'yes' : 'no'));
+      sl.scrollTop = sl.scrollHeight;
+      report.push('sessLogScrolled=' + (sl.scrollTop > 0 ? 'yes' : 'no'));
+    }
+    var shellH = document.querySelector('.history-shell').offsetHeight;
+    var pageH = document.querySelector('#page-history').clientHeight;
+    report.push('shellH=' + shellH);
+    report.push('pageH=' + pageH);
+    report.push('shellFits=' + (shellH <= pageH + 2 ? 'yes' : 'no'));
+    var esi2 = document.querySelector('#history-list .empty-state-title');
+    report.push('historyEmptyTitle=' + (esi2 ? esi2.textContent.trim() : 'none'));
+
+    await nav('support');
+    report.push('support cards=' + count('.support-card'));
+    report.push('supportIcons=' + count('.support-icon'));
+    report.push('supportHero=' + count('.support-hero'));
+    report.push('faqItems=' + count('.faq-item'));
+    report.push('supportChips=' + count('.chip'));
+    report.push('supportBottom=' + count('.support-bottom'));
+    report.push('supportStatusItems=' + count('.support-status-item'));
+    report.push('supportAccents=' + count('.support-card[class*="accent-"]'));
+    report.push('faqCols=' + style(document.querySelector('.faq-list'), 'gridTemplateColumns'));
+    report.push('githubIcon=' + count('.support-icon.github'));
+    report.push('changelogIcon=' + count('.support-icon.changelog'));
+    // Geometry of the support hero â€” title/search placement
+    function rect(sel) {
+      var el = document.querySelector(sel);
+      if (!el) return 'missing';
+      var r = el.getBoundingClientRect();
+      return Math.round(r.left) + ',' + Math.round(r.top) + ',' + Math.round(r.right) + ',' + Math.round(r.bottom) + ' w=' + Math.round(r.width);
+    }
+    report.push('pageRect=' + rect('#page-support'));
+    report.push('heroRect=' + rect('.support-hero'));
+    report.push('heroTitleRect=' + rect('.support-hero-title'));
+    report.push('heroSubRect=' + rect('.support-hero-sub'));
+    report.push('searchRect=' + rect('.support-search'));
+    report.push('chipsRect=' + rect('.support-hero-chips'));
+    report.push('statusRect=' + rect('.support-status'));
+    var heroEl = document.querySelector('.support-hero');
+    var titleEl = document.querySelector('.support-hero-title');
+    if (heroEl && titleEl) {
+      var hr = heroEl.getBoundingClientRect();
+      var tr = titleEl.getBoundingClientRect();
+      report.push('titleCenterOff=' + Math.round(Math.abs((tr.left + tr.width / 2) - (hr.left + hr.width / 2))));
+    }
+    if (heroEl) {
+      report.push('heroOffsetH=' + heroEl.offsetHeight);
+      report.push('heroClientH=' + heroEl.clientHeight);
+      report.push('heroScrollH=' + heroEl.scrollHeight);
+      report.push('heroOverflow=' + getComputedStyle(heroEl).overflow);
+      report.push('heroDisplay=' + getComputedStyle(heroEl).display);
+      report.push('heroPosition=' + getComputedStyle(heroEl).position);
+    }
+    var winW = window.innerWidth;
+    report.push('viewport=' + winW + 'x' + window.innerHeight);
+
+    var errs = window.__errors || [];
+    report.push('ERRORS=' + errs.length);
+    if (errs.length) { report.push('ERRLIST=' + errs.join(' || ')); }
+
+    var pre = document.getElementById('e2e-report');
+    pre.textContent = report.join('\n');
+    document.title = 'E2E-DONE';
+  }
+  run();
+})();
+</script></body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "announcement": {
+    "id": "sample-announcement-1",
+    "title": "🎉 FLASH SALE — 50% OFF",
+    "body": "Limited-time discount on all plans. Use code FLASH50 at checkout before it ends!",
+    "url": "https://www.hirebotai.in/pricing",
+    "icon": "🎉",
+    "valid_until": "2026-09-01"
+  },
+  "update": null
+}

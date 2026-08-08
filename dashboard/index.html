@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hirebotai — Dashboard</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages/pages.css">
+</head>
+<body>
+
+  <!-- Background decor -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+  <div class="bg-orb bg-orb-4"></div>
+  <div class="bg-particles" id="bg-particles" aria-hidden="true"></div>
+  <div class="bg-shoot" aria-hidden="true"></div>
+
+  <div id="app">
+
+    <!-- ═══════════════════════════ SIDEBAR ═══════════════════════════ -->
+    <aside id="sidebar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div id="logo-area" style="display:flex; align-items:center; gap:0px; padding:4px 8px 4px 0px;">
+        <img src="../logo.png" class="logo-icon" alt="HIREBOT AI" style="width:120px; height:120px; border-radius:14px; object-fit:contain; flex-shrink:0; margin-left:-8px; margin-top:-4px; margin-bottom:-4px; filter: drop-shadow(0 0 14px rgba(139, 92, 246, 0.85));">
+        <span class="logo-name" style="white-space:nowrap; font-size:22px; font-weight:900; letter-spacing:0.5px; margin-left:-34px;">HIREBOT AI</span>
+      </div>
+
+      <nav id="nav">
+        <div class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </span>
+          <span class="nav-label">Dashboard</span>
+        </div>
+        <div class="nav-item" data-page="practice">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          </span>
+          <span class="nav-label">Practice Interview</span>
+        </div>
+        <div class="nav-item" data-page="resume">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </span>
+          <span class="nav-label">Resumes</span>
+        </div>
+        <div class="nav-item" data-page="cheatsheet">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </span>
+          <span class="nav-label">Cheat Sheet</span>
+        </div>
+        <div class="nav-item" data-page="apikeys">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+          </span>
+          <span class="nav-label">API Keys</span>
+        </div>
+        <div class="nav-item" data-page="hotkeys">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="10" x2="6.01" y2="10"></line><line x1="10" y1="10" x2="10.01" y2="10"></line><line x1="14" y1="10" x2="14.01" y2="10"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><line x1="6" y1="14" x2="6.01" y2="14"></line><line x1="10" y1="14" x2="10.01" y2="14"></line><line x1="14" y1="14" x2="14.01" y2="14"></line><line x1="18" y1="14" x2="18.01" y2="14"></line></svg>
+          </span>
+          <span class="nav-label">Hotkeys</span>
+        </div>
+        <div class="nav-item" data-page="settings">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </span>
+          <span class="nav-label">Settings</span>
+        </div>
+        <div class="nav-item" data-page="history">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </span>
+          <span class="nav-label">History</span>
+        </div>
+        <div class="nav-item" data-page="support">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </span>
+          <span class="nav-label">Support</span>
+        </div>
+      </nav>
+
+      <div id="sidebar-footer">
+        <img src="../logo.png" class="footer-avatar" alt="HIREBOT AI">
+        <div class="footer-info">
+          <div class="fn" id="sidebar-user-name" style="font-size:13px; font-weight:900; white-space:nowrap;">HIREBOT AI V1</div>
+          <div class="fv" id="sidebar-user-email" style="font-size:11px; margin-top:2px; white-space:nowrap; max-width:170px; overflow:hidden; text-overflow:ellipsis;"></div>
+          <div class="fv" id="sidebar-license-text" style="font-size:11px; margin-top:2px; white-space:nowrap;">v1.0 Pro · Trial</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════════════ MAIN ═══════════════════════════ -->
+    <main id="main">
+
+      <!-- Server-driven announcement/update banner (shown on app open) -->
+      <div class="banner app-notice" id="app-notice" style="display:none;">
+        <div class="app-notice-content">
+          <div class="banner-icon" id="app-notice-icon">📢</div>
+          <div class="banner-text">
+            <div class="banner-text-title" id="app-notice-title"></div>
+            <div class="banner-text-desc" id="app-notice-desc"></div>
+          </div>
+          <div class="banner-actions">
+            <button class="btn btn-primary btn-sm" id="app-notice-cta" style="display:none;">Learn More</button>
+          </div>
+        </div>
+        <button class="app-notice-close" id="app-notice-close" title="Dismiss">✕</button>
+      </div>
+
+      <!-- Server-driven announcement/update poster (centered, on app open) -->
+      <div class="app-poster-overlay" id="app-poster" style="display:none;">
+        <div class="app-poster" id="app-poster-card">
+          <button class="app-poster-close" id="app-poster-close" title="Collapse to banner">✕</button>
+          <div class="app-poster-icon" id="app-poster-icon">🎉</div>
+          <div class="app-poster-title" id="app-poster-title"></div>
+          <div class="app-poster-desc" id="app-poster-desc"></div>
+          <div class="app-poster-actions">
+            <button class="btn btn-primary" id="app-poster-cta" style="display:none;">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────── DASHBOARD ─────────────────── -->
+      <section class="page active" id="page-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">HIREBOT AI</div>
+            <div class="page-header-subtitle">Your premium intelligent interview coding assistant.</div>
+          </div>
+          <div class="page-header-actions">
+            <label class="toggle" for="master-power" title="Master power">
+              <input type="checkbox" id="master-power" checked>
+              <div class="toggle-track"></div>
+              <div class="toggle-knob"></div>
+              <span class="toggle-text on" id="master-power-label">Engine On</span>
+            </label>
+            <button class="btn btn-secondary" id="create-shortcut">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+              Create Shortcut
+            </button>
+          </div>
+        </div>
+
+        <!-- Trial Banner with active timer inside the workspace -->
+        <div class="banner" id="dash-trial-banner" style="display:none; margin-bottom: 24px; background: linear-gradient(90deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%); border: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 18px 24px; border-radius: 16px; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);"></div>
+          <div class="banner-content" style="display:flex; align-items:center; gap:20px; position: relative; z-index: 1;">
+            <div style="flex: 1;">
+              <div class="banner-text-title" style="font-weight:800; font-size:16px; color:#fff; letter-spacing: 0.5px; margin-bottom: 4px;">PREMIUM TRIAL ACTIVE</div>
+              <div class="banner-text-desc" style="font-size:13px; color:rgba(255,255,255,0.7);">
+                You have full access to all Advanced Copilot features. Time remaining: <span id="dash-trial-timer" style="font-family:var(--font-mono); font-weight:800; color:#A78BFA; background: rgba(139,92,246,0.2); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(139,92,246,0.4); margin-left: 6px; box-shadow: 0 0 15px rgba(139,92,246,0.3);">72h 00m 00s</span>
+              </div>
+            </div>
+            <button onclick="window.open('https://www.hirebotai.in/pricing', '_blank')" style="background: linear-gradient(135deg, #8B5CF6, #3B82F6); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(139,92,246,0.4);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Upgrade Now</button>
+          </div>
+        </div>
+
+        <!-- Intelligent Interview Assistant Hero -->
+        <div class="dash-hero" style="display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; padding: 40px; border-radius: 16px; margin-bottom: 24px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.05)); border: 1px solid rgba(139, 92, 246, 0.25); position:relative; overflow:hidden;">
+          <div style="position:absolute; top:-50px; right:-50px; width:150px; height:150px; border-radius:50%; background:rgba(139, 92, 246, 0.1); filter:blur(40px); pointer-events:none;"></div>
+          <div style="position:absolute; bottom:-60px; left:40%; width:180px; height:180px; border-radius:50%; background:rgba(59, 130, 246, 0.08); filter:blur(50px); pointer-events:none;"></div>
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent-purple); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">INTELLIGENT INTERVIEW ASSISTANT</div>
+          <h2 id="dash-greeting" style="font-size: 32px; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 14px; color:#fff;">Welcome to Hirebot AI</h2>
+          <p style="font-size: 14px; color: var(--color-text-dim); line-height: 1.6; max-width: 680px;">
+            Hirebot AI is active silently in the background, bridging screen solver metrics with real-time audio transcriptions and custom resume models to ace your interviews.
+          </p>
+          <div style="display:flex; gap:12px; margin-top:22px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:8px; background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:8px 14px; border-radius:10px;">
+              <span id="engine-dot" style="width:8px; height:8px; border-radius:50%; background:#10B981; box-shadow:0 0 8px #10B981; display:inline-block;"></span>
+              <span id="engine-status" style="font-size:13px; font-weight:800; color:var(--color-success);">Active and Listening</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; background:rgba(96,165,250,0.08); border:1px solid rgba(96,165,250,0.2); padding:8px 14px; border-radius:10px;">
+              <span id="api-status-label" style="font-size:13px; font-weight:800; color:var(--color-accent-blue);">Connected to AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Motivation -->
+        <div id="dash-motivation" style="display:flex; align-items:center; gap:16px; padding:18px 22px; border-radius:14px; margin-bottom:20px; background: linear-gradient(90deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.04)); border: 1px solid rgba(139, 92, 246, 0.18);">
+          <div style="width:42px; height:42px; border-radius:12px; background:rgba(139,92,246,0.14); border:1px solid rgba(139,92,246,0.3); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;">💪</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-size:10px; font-weight:800; color:var(--color-accent-purple); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px;">Daily Motivation</div>
+            <div id="dash-motivation-text" style="font-size:14px; font-weight:700; color:#fff; line-height:1.5;">One day you will achieve what you want — but cheating is never the solution.</div>
+            <div id="dash-motivation-author" style="font-size:11px; color:var(--color-text-faint); margin-top:4px; font-weight:600;"></div>
+          </div>
+        </div>
+
+        <!-- Live Stats Row -->
+        <div class="stats-grid" style="margin-bottom: 4px;">
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Total Sessions</div>
+              <div class="stat-icon">🛰️</div>
+            </div>
+            <div class="stat-value" id="dash-stat-total">0</div>
+            <div class="stat-sub" id="dash-stat-total-sub">Across all activities</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Screen Solves</div>
+              <div class="stat-icon">🎯</div>
+            </div>
+            <div class="stat-value" id="dash-stat-screen">0</div>
+            <div class="stat-sub" id="dash-stat-screen-sub">Captures solved</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Practice Runs</div>
+              <div class="stat-icon">🎙️</div>
+            </div>
+            <div class="stat-value" id="dash-stat-practice">0</div>
+            <div class="stat-sub" id="dash-stat-practice-sub">Mock interviews</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Interviews</div>
+              <div class="stat-icon">🎧</div>
+            </div>
+            <div class="stat-value" id="dash-stat-interviews">0</div>
+            <div class="stat-sub" id="dash-stat-interviews-sub">Audio + interviews</div>
+          </div>
+        </div>
+
+        <!-- Activity & Arsenal -->
+        <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; margin-top: 20px;">
+
+          <!-- Recent Activity Timeline -->
+          <section class="page-section">
+            <div class="section-head">
+              <h2 class="section-title" style="font-size:16px;">Recent Activity</h2>
+              <p class="section-description">Your latest sessions at a glance</p>
+            </div>
+            <div class="card" id="dash-recent-activity" style="padding:20px; border-radius:12px; display:flex; flex-direction:column; gap:4px; min-height:140px;">
+              <div style="padding:20px; text-align:center; color:var(--color-text-faint); font-size:13px;">Loading your latest activity…</div>
+            </div>
+          </section>
+
+          <!-- Arsenal / Capabilities -->
+          <section class="page-section">
+            <div class="section-head">
+              <h2 class="section-title" style="font-size:16px;">Your Arsenal</h2>
+              <p class="section-description">Everything at your fingertips</p>
+            </div>
+            <div class="card" style="padding:20px; border-radius:12px; display:flex; flex-direction:column; gap:14px; background: rgba(15, 20, 40, 0.3); border: 1px solid rgba(255,255,255,0.03);">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(139,92,246,0.12); border:1px solid rgba(139,92,246,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">🎯</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Solve Any Screen</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Press <b style="color:var(--color-accent-purple);">ALT + S</b> anywhere</div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">🪟</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">HUD Overlay</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Toggle with <b style="color:var(--color-accent-green);">ALT + H</b></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(96,165,250,0.12); border:1px solid rgba(96,165,250,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">💬</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Stealth Search</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Ask anything with <b style="color:var(--color-accent-blue);">ALT + Q</b></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">👻</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Ghost Mode</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Click-through overlay with <b style="color:var(--color-accent-cyan);">ALT + T</b></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">🎤</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Interview Mode</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Answer live with <b style="color:var(--color-accent-amber);">ALT + I</b></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(236,72,153,0.12); border:1px solid rgba(236,72,153,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">👂</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Audio Listening</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Hear the interviewer with <b style="color:var(--color-accent-pink);">ALT + A</b></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">🧹</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Clear Answer</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Reset the HUD with <b style="color:var(--color-accent-red);">ALT + C</b></div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(148,163,184,0.12); border:1px solid rgba(148,163,184,0.25); display:flex; align-items:center; justify-content:center; font-size:18px;">😴</div>
+                <div style="flex:1;">
+                  <div style="font-weight:800; font-size:14px; color:#fff;">Dormant Mode</div>
+                  <div style="font-size:12px; color:var(--color-text-faint); margin-top:2px;">Silent sleep with <b style="color:var(--color-text-muted);">ALT + Z</b></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- ─────────────────── PRACTICE ─────────────────── -->
+      <section class="page" id="page-practice">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Practice Interview</div>
+            <div class="page-header-subtitle">Simulate a real technical interview with AI.</div>
+          </div>
+        </div>
+
+        <!-- Setup -->
+        <div id="prac-setup">
+          <div class="card practice-setup-card">
+            <div class="card-p">
+              <h2 class="section-title" style="margin-bottom:4px;">Configure Session</h2>
+              <p class="section-description" style="margin-bottom:24px;">Choose your interview profile to begin.</p>
+
+              <div class="practice-form">
+                <div class="form-group">
+                  <label class="form-label" for="prac-type">Interview Type</label>
+                  <select id="prac-type" class="input">
+                    <option>Technical Coding</option>
+                    <option>Data Structures &amp; Algorithms</option>
+                    <option>System Design</option>
+                    <option>Behavioral</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="prac-diff">Difficulty</label>
+                  <select id="prac-diff" class="input">
+                    <option>Easy</option>
+                    <option selected>Medium</option>
+                    <option>Hard</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="prac-q-count">Number of Questions</label>
+                  <select id="prac-q-count" class="input">
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="7">7</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="flex-direction:row;align-items:center;justify-content:space-between;">
+                  <div>
+                    <div class="form-label" style="margin-bottom:2px;">Use Resume Context</div>
+                    <div style="font-size:12px;color:var(--color-text-faint);">Tailor questions to your uploaded resume</div>
+                  </div>
+                  <label class="toggle" for="prac-resume-toggle">
+                    <input type="checkbox" id="prac-resume-toggle" disabled>
+                    <div class="toggle-track"></div>
+                    <div class="toggle-knob"></div>
+                  </label>
+                </div>
+
+                <button id="start-practice" class="btn btn-primary btn-lg">Start Interview</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Console -->
+        <div id="prac-console" class="hidden">
+          <div class="practice-console">
+            <div class="interviewer-panel card">
+              <div class="interviewer-avatar-wrap" style="width:180px; height:180px; margin: 10px auto; position:relative;">
+                <div class="interviewer-ring" id="prac-interviewer-ring" style="position:absolute; inset:-8px; border-radius:50%; border:3px solid var(--color-accent-purple); opacity:0; transition:all 0.3s;"></div>
+                <img src="../interviewer_avatar.jpg" class="interviewer-avatar" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid var(--color-border); box-shadow: 0 8px 24px rgba(0,0,0,0.4);" />
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                <div class="interviewer-name">Hirebot AI</div>
+                <div class="interviewer-status" id="prac-interviewer-status">IDLE</div>
+                <div class="audio-wave" id="prac-audio-wave">
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                  <span class="audio-wave-bar"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="interview-dialog">
+              <div class="card question-card">
+                <div class="question-label">Question <span id="prac-question-num"></span></div>
+                <div class="question-text" id="prac-prompt-txt">Preparing your session...</div>
+              </div>
+
+              <div class="answer-workspace">
+                <div class="workspace-tabs">
+                  <button class="workspace-tab active" id="tab-btn-text">✍️ Text</button>
+                  <button class="workspace-tab" id="tab-btn-code">💻 Code</button>
+                </div>
+
+                <div class="workspace-tab-panel active" id="prac-workspace-text">
+                  <div class="answer-text-area">
+                    <div class="answer-text-header">
+                      <span class="answer-text-label">Your Answer</span>
+                    </div>
+                    <textarea id="prac-answer-inp" class="input answer-textarea" placeholder="Type your answer here..."></textarea>
+                  </div>
+                </div>
+
+                <div class="workspace-tab-panel" id="prac-workspace-code">
+                  <div class="answer-code-area">
+                    <div class="answer-code-header">
+                      <span class="answer-code-label">Your Code</span>
+                    </div>
+                    <textarea id="prac-code-inp" class="input code-editor" placeholder="// Write your solution here" spellcheck="false"></textarea>
+                  </div>
+                </div>
+
+                <div class="workspace-actions">
+                  <button id="prac-mic-btn" class="btn btn-secondary">🎙️ Start Speaking</button>
+                  <div style="display:flex;gap:8px;">
+                    <button id="quit-practice" class="btn btn-ghost">Quit</button>
+                    <button id="prac-submit-btn" class="btn btn-primary">Submit Answer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="prac-results" class="hidden">
+          <div class="card results-card">
+            <div class="results-header">
+              <div>
+                <div class="results-title">Session Complete</div>
+                <div class="results-subtitle">Here's how you performed</div>
+              </div>
+              <div class="score-display">
+                <div class="score-label">Score</div>
+                <div class="score-value" id="prac-score-val">—</div>
+              </div>
+            </div>
+            <div class="results-analysis">
+              <div class="analysis-label">Analysis</div>
+              <div class="analysis-text" id="prac-report-analysis">Evaluating your performance...</div>
+            </div>
+            <div class="results-breakdown">
+              <div class="breakdown-section strengths">
+                <h4>Strengths</h4>
+                <div class="breakdown-list" id="prac-strengths"></div>
+              </div>
+              <div class="breakdown-section weaknesses">
+                <h4>Areas to Improve</h4>
+                <div class="breakdown-list" id="prac-weaknesses"></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:var(--space-5);border-top:1px solid var(--color-border);margin-top:var(--space-5);">
+              <button id="prac-restart" class="btn btn-secondary">Practice Again</button>
+              <button id="prac-dashboard" class="btn btn-primary">Back to Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── RESUME ─────────────────── -->
+      <section class="page" id="page-resume">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Resumes</div>
+            <div class="page-header-subtitle">Upload up to 3 resumes. The active one is used to tailor interview questions.</div>
+          </div>
+        </div>
+
+        <div class="resume-overview" id="resume-overview"></div>
+        <div id="resume-grid" class="resume-grid"></div>
+
+        <div class="resume-tip">
+          <div class="resume-tip-ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"></path><path d="M9 22h6M10 18h4"></path></svg>
+          </div>
+          <div class="resume-tip-body">
+            <div class="resume-tip-title">How your resume powers interviews</div>
+            <div class="resume-tip-text">Your active resume is used to tailor interview questions, practice feedback, and scorecards to your actual experience. Keep it fresh for the most relevant sessions.</div>
+          </div>
+          <div class="resume-tip-steps">
+            <div class="resume-tip-step"><span>1</span>Upload a PDF or TXT resume — max 10MB</div>
+            <div class="resume-tip-step"><span>2</span>Mark it as active with one click</div>
+            <div class="resume-tip-step"><span>3</span>Start a practice interview, fully tailored</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── CHEATSHEET ─────────────────── -->
+      <section class="page" id="page-cheatsheet">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Cheat Sheet</div>
+            <div class="page-header-subtitle">Notes shown in the HUD overlay when you press your cheat sheet hotkey.</div>
+          </div>
+        </div>
+
+        <div class="cheat-hint-strip">
+          <span class="cheat-hint">
+            <span class="keycap">Alt</span><span class="keycap-plus">+</span><span class="keycap">N</span>
+            <span class="cheat-hint-text">Press to toggle the HUD overlay</span>
+          </span>
+          <span class="cheat-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span class="cheat-hint-text">Stored locally, never leaves your device</span>
+          </span>
+        </div>
+
+        <div class="card cheatsheet-editor">
+          <div class="editor-toolbar">
+            <button class="editor-toolbar-btn" id="cheat-save" title="Save">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            </button>
+            <button class="editor-toolbar-btn" id="cheat-copy" title="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+            <div class="editor-toolbar-divider"></div>
+            <button class="editor-toolbar-btn" id="cheat-clear" title="Clear">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+            <span class="editor-file">cheatsheet.txt</span>
+            <span class="editor-autosave" id="cheat-autosave">Auto-saves</span>
+          </div>
+          <div class="editor-wrapper">
+            <div class="line-numbers" id="line-nums">1</div>
+            <textarea id="cheat-ed" class="editor-textarea" spellcheck="false"></textarea>
+            <div class="cheat-empty" id="cheat-empty">
+              <div class="cheat-empty-icon">✍️</div>
+              <div class="cheat-empty-title">Your cheat sheet is empty</div>
+              <div class="cheat-empty-desc">Write quick notes, formulas, or talking points. They'll appear in the floating HUD overlay when you press your hotkey.</div>
+              <div class="cheat-empty-cta">Start typing — everything auto-saves</div>
+            </div>
+          </div>
+          <div class="editor-statusbar">
+            <span class="editor-status-item" id="cheat-stats">0 lines · 0 chars</span>
+            <span class="editor-status-item" id="cheat-saved-state">Ready</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── API KEYS ─────────────────── -->
+      <section class="page" id="page-apikeys">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">API Keys</div>
+            <div class="page-header-subtitle">Connect your AI provider to power the HUD. Keys are stored encrypted and never exposed to this page.</div>
+          </div>
+        </div>
+        <div class="card license-card">
+          <div class="card-p">
+            <div class="license-head">
+              <div>
+                <h2 class="section-title" style="margin-bottom:4px;">License</h2>
+                <p class="section-description">Activate your Hirebotai license or extend your trial.</p>
+              </div>
+              <span class="license-badge" id="license-badge">…</span>
+            </div>
+
+            <div class="license-row">
+              <div class="license-input-wrap">
+                <input type="text" class="input" id="license-key-input" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" spellcheck="false">
+              </div>
+              <button class="btn btn-primary" id="license-activate">Activate Key</button>
+            </div>
+            <div class="license-status" id="license-status"></div>
+            <div style="margin-top:10px; font-size:12.5px; color:var(--color-text-faint, #94A3B8);">
+              Don't have a license yet? <a href="#" onclick="window.open('https://www.hirebotai.in/pricing', '_blank'); return false;" style="color:var(--color-accent, #8B5CF6); font-weight:600; text-decoration:underline;">Get one on our pricing page</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="provider-grid" class="provider-grid"></div>
+      </section>
+
+      <!-- ─────────────────── HOTKEYS ─────────────────── -->
+      <section class="page" id="page-hotkeys">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Hotkeys</div>
+            <div class="page-header-subtitle">Global shortcuts that work anywhere, even in fullscreen apps.</div>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-secondary" id="hotkeys-copy">Copy List</button>
+            <button class="btn btn-danger" id="hotkeys-reset">Reset Defaults</button>
+          </div>
+        </div>
+        <div class="card hotkeys-table" id="hotkeys-table"></div>
+      </section>
+
+      <!-- ─────────────────── SETTINGS ─────────────────── -->
+      <section class="page" id="page-settings">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Settings</div>
+            <div class="page-header-subtitle">Customize how Hirebotai behaves.</div>
+          </div>
+        </div>
+        <div id="settings-grid" class="settings-grid"></div>
+      </section>
+
+      <!-- ─────────────────── HISTORY ─────────────────── -->
+      <section class="page" id="page-history">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">History</div>
+            <div class="page-header-subtitle">Browse past interviews, screen captures, and audio transcripts.</div>
+          </div>
+        </div>
+        <div class="history-shell">
+          <div class="history-rail">
+            <div class="history-rail-title">Library</div>
+            <button class="history-tab active" data-category="interview">
+              <span class="history-tab-ic">🎓</span>
+              <span class="history-tab-lbl">Interview</span>
+            </button>
+            <button class="history-tab" data-category="screen">
+              <span class="history-tab-ic">📸</span>
+              <span class="history-tab-lbl">Screen</span>
+            </button>
+            <button class="history-tab" data-category="practice">
+              <span class="history-tab-ic">🎯</span>
+              <span class="history-tab-lbl">Practice</span>
+            </button>
+            <button class="history-tab" data-category="audio">
+              <span class="history-tab-ic">🎙️</span>
+              <span class="history-tab-lbl">Audio</span>
+            </button>
+            <div class="history-rail-foot">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+              <span>Sessions are logged when "Log Session History" is enabled in Settings.</span>
+            </div>
+          </div>
+          <div class="history-list" id="history-list"></div>
+          <div class="history-detail" id="history-detail">
+            <div class="empty-state" style="flex:1;">
+              <div class="empty-state-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg>
+              </div>
+              <div class="empty-state-title">Select a Session</div>
+              <div class="empty-state-message">Click a session from the list to view details.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────── SUPPORT ─────────────────── -->
+      <section class="page" id="page-support">
+        <div class="page-header">
+          <div>
+            <div class="page-header-title">Support</div>
+            <div class="page-header-subtitle">Need help? We're one message away.</div>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-secondary" id="support-copy-diagnostics">Copy Diagnostics</button>
+          </div>
+        </div>
+
+        <div class="support-hero">
+          <div class="support-hero-title">How can we help?</div>
+          <div class="support-hero-sub">Search guides, browse the FAQ, or talk to a human.</div>
+          <div class="support-search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="input" id="support-search-input" placeholder="Search docs, hotkeys, troubleshooting...">
+            <span class="support-search-kbd"><span class="keycap">Ctrl</span><span class="keycap-plus">+</span><span class="keycap">K</span></span>
+          </div>
+          <div class="support-hero-chips">
+            <button class="chip" data-support-action="docs">🚀 Quick start</button>
+            <button class="chip" data-support-action="docs">⌨️ Hotkeys guide</button>
+            <button class="chip" data-support-action="docs">🔧 Troubleshooting</button>
+            <button class="chip" data-support-action="changelog">🔄 What's new</button>
+          </div>
+          <div class="support-status">
+            <span class="support-status-item"><span class="status-dot status-dot-success"></span> All systems operational</span>
+            <span class="support-status-item">Version 2.0.0</span>
+            <span class="support-status-item">Avg. reply under 24h</span>
+          </div>
+        </div>
+
+        <div class="support-section-title">Reach us</div>
+        <div class="support-grid">
+          <div class="card support-card accent-blue" data-support-action="docs">
+            <div class="support-icon docs">📚</div>
+            <div class="support-content">
+              <div class="support-title">Documentation</div>
+              <div class="support-desc">Guides, hotkey reference, and troubleshooting tips.</div>
+              <span class="provider-link">Open docs →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-indigo" data-support-action="discord">
+            <div class="support-icon discord">💬</div>
+            <div class="support-content">
+              <div class="support-title">Discord Community</div>
+              <div class="support-desc">Join the community for tips, updates, and help.</div>
+              <span class="provider-link">Join Discord →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-red" data-support-action="email">
+            <div class="support-icon email">✉️</div>
+            <div class="support-content">
+              <div class="support-title">Email Support</div>
+              <div class="support-desc">Reach the team directly at hello@hirebotai.in.</div>
+              <span class="provider-link">Send an email →</span>
+            </div>
+          </div>
+
+          <div class="card support-card accent-violet" data-support-action="bug">
+            <div class="support-icon changelog">🐛</div>
+            <div class="support-content">
+              <div class="support-title">Report a Bug</div>
+              <div class="support-desc">Found an issue? Let us know so we can fix it.</div>
+              <span class="provider-link">Send feedback →</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="support-section-title">Frequently asked questions</div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Where does my cheat sheet appear?</summary>
+            <div class="faq-body">Press <span class="keycap">Alt</span><span class="keycap-plus">+</span><span class="keycap">N</span> anywhere to toggle the HUD overlay. Your notes render in the floating HUD window and auto-save as you type.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Which API key do I need for screen capture?</summary>
+            <div class="faq-body">OpenRouter or Gemini — both support vision models. Groq is text-only and won't power screen capture, so pair it with a vision provider.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Hotkeys stopped working, what now?</summary>
+            <div class="faq-body">Make sure Master Power is on, and no other app is bound to the same combination. Reassign the shortcut from the Hotkeys page.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I keep my trial active?</summary>
+            <div class="faq-body">Use "Extend Trial" on the API Keys page to add time, or activate a license key to unlock all features permanently.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Where is my session history stored?</summary>
+            <div class="faq-body">Every mock interview and practice run is saved locally under your profile. Open the History page to replay transcripts, review scorecards, or copy a session's diagnostics.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do interview questions use my resume?</summary>
+            <div class="faq-body">Upload a resume and set it as active on the Resume page, then flip on "Use my resume" before starting a session. The AI will tailor questions to your listed skills and experience.</div>
+          </details>
+          <details class="faq-item">
+            <summary>What happens when my trial expires?</summary>
+            <div class="faq-body">The engine pauses and the dashboard shows a "trial expired — license required" state. Your notes, history, and settings stay intact, so nothing is lost once you extend the trial or activate a key.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I switch the AI provider?</summary>
+            <div class="faq-body">Open the API Keys page and enable your preferred provider — OpenRouter, Gemini, or Groq. Screen capture needs a vision-capable provider (OpenRouter or Gemini), while text chat can run on any.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I replay or export a practice session?</summary>
+            <div class="faq-body">Yes. Open the session from the History page to scroll the full transcript, then use "Copy Diagnostics" on the Support page to export the details for review or support.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How many questions can I set per interview?</summary>
+            <div class="faq-body">Pick 3 to 30 questions when configuring a session. Higher counts give a broader range of topics but take longer — 5 to 10 is a good balance for most practice runs.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Does the HUD cheat sheet work everywhere?</summary>
+            <div class="faq-body">The HUD overlay works on any screen where you've enabled it. Toggle it per-tab from the extension popup, and adjust the shortcut from the Hotkeys page if it conflicts with another app.</div>
+          </details>
+        </div>
+
+        <div class="support-bottom">
+          <div class="support-bottom-info">
+            <div class="support-bottom-title">Still stuck?</div>
+            <div class="support-bottom-sub">The fastest way to a fix is an email with your diagnostics attached.</div>
+          </div>
+          <div class="support-bottom-actions">
+            <button class="btn btn-secondary" data-support-action="email">✉️ Email Support</button>
+            <button class="btn btn-primary" id="support-copy-diagnostics">Copy Diagnostics</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FEEDBACK MODAL ── -->
+      <div class="modal-overlay" id="feedback-modal">
+        <div class="modal" style="max-width: 500px; width: 100%; border-top: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(139,92,246,0.1);">
+          <div class="modal-head" style="padding: 24px 24px 16px; border-bottom: none;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); display: flex; align-items: center; justify-content: center; color: var(--color-accent-purple);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <div>
+                <div class="modal-title" style="font-size: 18px; margin: 0;">Send Feedback</div>
+                <div style="font-size: 12px; color: var(--color-text-faint); margin-top:3px;">Help us improve the Hirebot AI engine.</div>
+              </div>
+            </div>
+            <button class="icon-btn" onclick="document.getElementById('feedback-modal').classList.remove('open')" style="margin-left: auto;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="modal-body" style="padding: 0 24px 24px;">
+            <textarea id="feedback-text" class="textarea" rows="5" placeholder="What's on your mind? (E.g., 'I found a bug where...' or 'It would be great if...')" style="width: 100%; resize: none; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; font-size: 14px; margin-bottom: 24px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); transition: all 0.2s ease;" onfocus="this.style.borderColor='rgba(139,92,246,0.6)'; this.style.background='rgba(0,0,0,0.3)';" onblur="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(0,0,0,0.2)';"></textarea>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 12px;">
+              <button class="btn btn-secondary" onclick="document.getElementById('feedback-modal').classList.remove('open')" style="padding: 10px 20px; border-radius: 8px;">Cancel</button>
+              <button class="btn btn-primary" id="submit-feedback-btn" style="padding: 10px 24px; border-radius: 8px; background: linear-gradient(135deg, var(--color-brand), var(--color-accent-purple)); border: none; font-weight: 600; box-shadow: 0 4px 14px rgba(139,92,246,0.3); display: flex; align-items: center; gap: 8px; transition: transform 0.1s ease;" onmousedown="this.style.transform='scale(0.96)'" onmouseup="this.style.transform='scale(1)'">
+                Send Report
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════ ACCOUNT / LOGIN LOCK SCREEN ═══════════════════════════ -->
+  <div id="account-lock-screen" style="display:none;">
+    <div class="lock-card" style="max-width:420px;">
+      <div class="lock-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </div>
+      <div class="lock-eyebrow">HIREBOTAI · ACCOUNT</div>
+
+      <!-- LOGIN -->
+      <div id="acct-pane-login">
+        <h1 class="lock-title" style="font-size:28px;">Welcome back</h1>
+        <p class="lock-desc">Log in with the same email &amp; password you use on hirebotai.in. Your trial and license follow your account.</p>
+        <div class="lock-form">
+          <input type="email" id="acct-login-email" class="input lock-input" placeholder="you@example.com" autocomplete="email" spellcheck="false" style="text-transform:none;text-align:left;">
+          <input type="password" id="acct-login-password" class="input lock-input" placeholder="Password" autocomplete="current-password" style="text-transform:none;text-align:left;">
+          <button class="btn btn-primary btn-lg" id="acct-login-btn">Log In</button>
+        </div>
+        <div class="lock-status" id="acct-login-status"></div>
+        <div class="lock-foot">
+          <span>New to Hirebotai?</span>
+          <a href="#" id="acct-show-register" class="lock-link">Create an account →</a>
+        </div>
+      </div>
+
+      <!-- REGISTER -->
+      <div id="acct-pane-register" style="display:none;">
+        <h1 class="lock-title" style="font-size:28px;">Create your account</h1>
+        <p class="lock-desc">Your name, email and password will work on both the app and hirebotai.in.</p>
+        <div class="lock-form">
+          <input type="text" id="acct-reg-name" class="input lock-input" placeholder="Full name" spellcheck="false" style="text-transform:none;text-align:left;">
+          <input type="email" id="acct-reg-email" class="input lock-input" placeholder="you@example.com" autocomplete="email" spellcheck="false" style="text-transform:none;text-align:left;">
+          <input type="password" id="acct-reg-password" class="input lock-input" placeholder="Password (min 6 characters)" autocomplete="new-password" style="text-transform:none;text-align:left;">
+          <button class="btn btn-primary btn-lg" id="acct-reg-send">Send Verification Code</button>
+        </div>
+        <div class="lock-status" id="acct-reg-status"></div>
+        <div class="lock-foot">
+          <span>Already registered?</span>
+          <a href="#" id="acct-show-login" class="lock-link">Log in →</a>
+        </div>
+      </div>
+
+      <!-- OTP VERIFY -->
+      <div id="acct-pane-otp" style="display:none;">
+        <h1 class="lock-title" style="font-size:28px;">Enter the 6-digit code</h1>
+        <p class="lock-desc" id="acct-otp-hint">We emailed a verification code to your inbox.</p>
+        <div class="lock-form">
+          <input type="text" id="acct-otp-code" class="input lock-input" placeholder="123456" maxlength="6" inputmode="numeric" spellcheck="false">
+          <button class="btn btn-primary btn-lg" id="acct-otp-btn">Verify &amp; Create Account</button>
+        </div>
+        <div class="lock-status" id="acct-otp-status"></div>
+        <div class="lock-foot">
+          <span>Didn't get it?</span>
+          <a href="#" id="acct-otp-resend" class="lock-link">Resend code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ TRIAL / LICENSE LOCK SCREEN ═══════════════════════════ -->
+  <div id="trial-lock-screen" style="display:none;">
+    <div class="lock-card">
+      <div class="lock-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+      <div class="lock-eyebrow">HIREBOTAI · LICENSE REQUIRED</div>
+      <h1 class="lock-title">Trial Ended</h1>
+      <p class="lock-desc">Your 3-day free trial has ended. Activate your license key to unlock the dashboard and every feature again. Your notes, history and settings are safe.</p>
+
+      <div class="lock-form">
+        <input type="text" id="license-lock-inp" class="input lock-input" placeholder="SA-XXXX-XXXX-XXXX-XXXX" spellcheck="false" autocomplete="off">
+        <button class="btn btn-primary btn-lg" id="license-lock-btn">Activate License</button>
+      </div>
+      <div class="lock-status" id="license-lock-status"></div>
+      <div class="lock-foot">
+        <span>Need a key?</span>
+        <a href="#" id="license-lock-buy" class="lock-link">Buy at hirebotai.in →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts (classic scripts; each file exposes window.* globals) -->
+  <script src="js/background.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/notice.js"></script>
+  <script src="js/account-gate.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/components/index.js"></script>
+  <script src="js/router.js"></script>
+  <script>
+    // Ensure practice mode cleanup when navigating away from practice page
+    window.Router.beforeEach(async function(pageName) {
+      if (window.Store && window.Store.get('practiceState') === 'console' && pageName !== 'practice') {
+        try {
+          if (window.Api) {
+            await window.Api.setPracticeSecurity(false);
+          }
+        } catch (e) { console.warn('Practice cleanup failed:', e); }
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) sidebar.style.display = 'flex';
+        document.exitFullscreen?.().catch(() => {});
+        window.Store.set('practiceState', 'setup');
+      }
+      return true;
+    });
+  </script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/practice.js"></script>
+  <script src="js/pages/resume.js"></script>
+  <script src="js/pages/cheatsheet.js"></script>
+  <script src="js/pages/apikeys.js"></script>
+  <script src="js/pages/hotkeys.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/history.js"></script>
+  <script src="js/pages/support.js"></script>
+  <script src="js/license-gate.js"></script>
+
+  <script>
+    (function () {
+      var router = window.Router;
+
+      // Register all pages
+      router.register('dashboard', window.DashboardPage);
+      router.register('practice', window.PracticePage);
+      router.register('resume', window.ResumePage);
+      router.register('cheatsheet', window.CheatsheetPage);
+      router.register('apikeys', window.ApiKeysPage);
+      router.register('hotkeys', window.HotkeysPage);
+      router.register('settings', window.SettingsPage);
+      router.register('history', window.HistoryPage);
+      router.register('support', window.SupportPage);
+
+      // Sidebar collapse
+      document.getElementById('sidebar-toggle').addEventListener('click', function () {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+      });
+
+      // Nav click navigation
+      document.querySelectorAll('.nav-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+          router.go(item.dataset.page);
+        });
+      });
+
+      // Initial route from hash
+      var hash = window.location.hash.slice(1).split('?')[0];
+      if (hash && router.routes.has(hash)) {
+        router.go(hash);
+      } else {
+        router.go('dashboard');
+      }
+    })();
+  </script>
+</body>
+</html>
