@@ -46,24 +46,24 @@ jobs:
         run: pyinstaller app/macos/Hirebotai-mac.spec --noconfirm
 
       - name: Ad-hoc code sign
-        run: codesign --force --deep --sign - app/dist/Hirebotai.app
+        run: codesign --force --deep --sign - dist/Hirebotai.app
 
       - name: Verify signatures
         run: |
-          codesign -dv app/dist/Hirebotai.app 2>&1 | grep -E 'Identifier|Signature'
-          lipo -info app/dist/Hirebotai.app/Contents/MacOS/Hirebotai
+          codesign -dv dist/Hirebotai.app 2>&1 | grep -E 'Identifier|Signature'
+          lipo -info dist/Hirebotai.app/Contents/MacOS/Hirebotai
 
       - name: Zip the app
-        run: ditto -c -k --sequesterRsrc --keepParent app/dist/Hirebotai.app app/dist/Hirebotai-mac-universal2.zip
+        run: ditto -c -k --sequesterRsrc --keepParent dist/Hirebotai.app dist/Hirebotai-mac-universal2.zip
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: Hirebotai-mac-universal2
-          path: app/dist/Hirebotai-mac-universal2.zip
+          path: dist/Hirebotai-mac-universal2.zip
 
       - name: Publish release on tag
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${GITHUB_REF_NAME}" app/dist/Hirebotai-mac-universal2.zip --generate-notes
+        run: gh release create "${GITHUB_REF_NAME}" dist/Hirebotai-mac-universal2.zip --generate-notes
