@@ -2,7 +2,7 @@ Installation Instructions for macOS:
 
 1. Download and extract the zip file.
 2. Open the extracted folder and drag "Hirebotai.app" into your Applications folder.
-3. The first time you open the app, macOS will block it because it is from an unidentified developer. To allow it:
+3. The first time you open the app, macOS may block it for security reasons. To allow it:
    - Right-click (or Control+click) on "Hirebotai.app" in your Applications folder.
    - Select "Open" from the menu.
    - Click the "Open" button in the security dialog that appears.
