@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'macos/**'
+      - 'app/macos/**'
       - 'app/dashboard.py'
       - 'app/main.py'
       - 'app/database.py'
@@ -46,12 +46,12 @@ jobs:
         run: pyinstaller app/macos/Hirebotai-mac.spec --noconfirm
 
       - name: Ad-hoc code sign
-        run: codesign --force --deep --sign - dist/Hirebotai.app
+        run: codesign --force --deep --sign - app/dist/Hirebotai.app
 
       - name: Verify signatures
         run: |
-          codesign -dv dist/Hirebotai.app 2>&1 | grep -E 'Identifier|Signature'
-          lipo -info dist/Hirebotai.app/Contents/MacOS/Hirebotai
+          codesign -dv app/dist/Hirebotai.app 2>&1 | grep -E 'Identifier|Signature'
+          lipo -info app/dist/Hirebotai.app/Contents/MacOS/Hirebotai
 
       - name: Zip the app
         run: ditto -c -k --sequesterRsrc --keepParent app/dist/Hirebotai.app app/dist/Hirebotai-mac-universal2.zip
@@ -66,4 +66,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${GITHUB_REF_NAME}" dist/Hirebotai-mac-universal2.zip --generate-notes
+        run: gh release create "${GITHUB_REF_NAME}" app/dist/Hirebotai-mac-universal2.zip --generate-notes
