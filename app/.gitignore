@@ -1,0 +1,33 @@
+# Secrets — NEVER commit real keys or databases
+.env
+*.db
+*.db-wal
+*.db-shm
+engine.lock
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build / packaging
+build/
+dist/
+!Hirebotai.spec
+Output/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+.next/
+website/.next/
+
+*.tsbuildinfo

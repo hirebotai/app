@@ -1,0 +1,68 @@
+name: Build macOS app
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'macos/**'
+      - 'app/dashboard.py'
+      - 'app/main.py'
+      - 'app/database.py'
+      - 'app/dashboard/**'
+      - 'app/logo.png'
+      - 'app/interviewer_avatar.jpg'
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r macos/requirements-mac.txt
+
+      - name: Generate app.icns from logo.png
+        run: |
+          mkdir -p app.iconset
+          sips -z 16 16 logo.png --out app.iconset/icon_16x16.png
+          sips -z 32 32 logo.png --out app.iconset/icon_16x16@2x.png
+          sips -z 32 32 logo.png --out app.iconset/icon_32x32.png
+          sips -z 64 64 logo.png --out app.iconset/icon_32x32@2x.png
+          sips -z 128 128 logo.png --out app.iconset/icon_128x128.png
+          sips -z 256 256 logo.png --out app.iconset/icon_128x128@2x.png
+          sips -z 256 256 logo.png --out app.iconset/icon_256x256.png
+          sips -z 512 512 logo.png --out app.iconset/icon_256x256@2x.png
+          sips -z 512 512 logo.png --out app.iconset/icon_512x512.png
+          cp logo.png app.iconset/icon_512x512@2x.png
+          iconutil -c icns app.iconset -o app.icns
+
+      - name: Build universal2 .app
+        run: pyinstaller macos/Hirebotai-mac.spec --noconfirm
+
+      - name: Ad-hoc code sign
+        run: codesign --force --deep --sign - dist/Hirebotai.app
+
+      - name: Verify signatures
+        run: |
+          codesign -dv dist/Hirebotai.app 2>&1 | grep -E 'Identifier|Signature'
+          lipo -info dist/Hirebotai.app/Contents/MacOS/Hirebotai
+
+      - name: Zip the app
+        run: ditto -c -k --sequesterRsrc --keepParent dist/Hirebotai.app dist/Hirebotai-mac-universal2.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hirebotai-mac-universal2
+          path: dist/Hirebotai-mac-universal2.zip
+
+      - name: Publish release on tag
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "${GITHUB_REF_NAME}" dist/Hirebotai-mac-universal2.zip --generate-notes

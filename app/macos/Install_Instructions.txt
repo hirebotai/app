@@ -1,0 +1,15 @@
+Installation Instructions for macOS:
+
+1. Download and extract the zip file.
+2. Open the extracted folder and drag "Hirebotai.app" into your Applications folder.
+3. The first time you open the app, macOS will block it because it is from an unidentified developer. To allow it:
+   - Right-click (or Control+click) on "Hirebotai.app" in your Applications folder.
+   - Select "Open" from the menu.
+   - Click the "Open" button in the security dialog that appears.
+4. Grant the required permissions when prompted:
+   - Accessibility: Required for keyboard control and text selection.
+   - Screen Recording: Required for screenshot capture.
+   - Microphone: Required for interview audio listening.
+5. Launch the app, log in or create your account, then start enjoying HireBot AI!
+
+Note: On macOS, the default modifier key is Option (⌥) instead of Alt. All hotkeys in the dashboard will automatically show Option on Mac.

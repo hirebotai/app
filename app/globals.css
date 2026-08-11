@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-jetbrains-mono: 'JetBrains Mono', monospace;
+    --font-space-grotesk: 'Space Grotesk', sans-serif;
+  }
+
+  * {
+    @apply border-surface-800;
+  }
+
+  html {
+    @apply scroll-smooth;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-950 text-surface-100;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-brand-500/40 text-surface-950;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-700 rounded-full hover:bg-surface-600;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500/50;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-surface-950;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 via-cyan-300 to-fuchsia-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-accent-green to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  /* Mono uppercase section label, e.g. "// features" */
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-brand-400;
+  }
+
+  .glass {
+    @apply bg-surface-900/50 backdrop-blur-sm border border-surface-800;
+  }
+
+  .glass-strong {
+    @apply bg-surface-900/80 backdrop-blur-md border border-surface-800/50;
+  }
+
+  .neon-card {
+    @apply relative bg-white/[0.02] border border-white/10 rounded-2xl transition-all duration-300;
+  }
+
+  .neon-card:hover {
+    @apply border-brand-500/40 shadow-glow;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-r before:from-brand-500/60 before:to-fuchsia-500/60 before:-z-10 before:opacity-0 hover:before:opacity-100 transition-opacity duration-300;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-[shimmer_2s_infinite];
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-brand-500/40 hover:shadow-glow hover:-translate-y-1;
+  }
+
+  .btn-magnetic {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-brand-500/20 before:to-fuchsia-500/20 before:-translate-x-full hover:before:translate-x-full transition-transform duration-500;
+  }
+
+  /* Terminal window */
+  .terminal {
+    @apply rounded-xl border border-surface-800 bg-surface-950/90 backdrop-blur-sm overflow-hidden shadow-2xl shadow-black/50;
+  }
+
+  .terminal-bar {
+    @apply flex items-center gap-2 px-4 py-3 border-b border-surface-800 bg-surface-900/60;
+  }
+
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  .animate-in {
+    animation: animate-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .grid-bg {
+    @apply bg-grid bg-[size:36px_36px];
+  }
+
+  .grid-bg-lg {
+    @apply bg-grid-lg bg-[size:72px_72px];
+  }
+
+  .scanlines {
+    @apply bg-scanlines;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+/* Razorpay modal custom styles */
+.razorpay-checkout-frame {
+  border-radius: 16px !important;
+}
+
+/* Selection styles for code blocks */
+pre code::selection {
+  background: rgba(0, 229, 255, 0.3);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

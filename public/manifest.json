@@ -1,0 +1,26 @@
+{
+  "name": "Hirebotai",
+  "short_name": "Hirebotai",
+  "description": "AI Interview Assistant for Developers — screen capture AI, real-time audio transcription, resume context, and cheat sheets.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "icons": [
+    {
+      "src": "/tab-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
