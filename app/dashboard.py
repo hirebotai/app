@@ -345,10 +345,11 @@ class Api:
         # On rejection the key is cleared locally and the UI shows trial state.
         maybe_verify_license(db)
         settings['license_key'] = (db.get_setting('license_key') or '').strip()
-        # Only sync the trial when logged in — with unified accounts the trial
-        # is account-bound and starts at first login, not at first launch.
-        if not settings.get('trial_start') and db.is_logged_in():
-            settings['trial_start'] = sync_trial_start(db)
+        # Sync trial on every startup when logged in. This binds the trial
+        # record to the account if it was previously created without a user_id
+        # (e.g., the user trialed before logging in).
+        if db.is_logged_in():
+            settings['trial_start'] = sync_trial_start(db, force_refresh=True)
         # Never expose API keys to the webview page — only their presence.
         settings['groq_api_key_set'] = bool(settings.get('groq_api_key'))
         settings['openrouter_api_key_set'] = bool(settings.get('openrouter_api_key'))
