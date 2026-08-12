@@ -1917,6 +1917,16 @@ def start_dashboard_hotkey_listener():
         pressed = set()
         state = {'alt': False, 'ctrl': False, 'shift': False, 'meta': False}
         
+        def _key_char(key):
+            if hasattr(key, 'char') and key.char:
+                return key.char.lower()
+            vk = getattr(key, 'vk', None)
+            if isinstance(vk, int) and 0x41 <= vk <= 0x5A:
+                return chr(vk).lower()
+            if isinstance(vk, int) and 0x30 <= vk <= 0x39:
+                return chr(vk)
+            return None
+        
         def set_mod(key, value):
             if key in [keyboard.Key.alt, keyboard.Key.alt_l, keyboard.Key.alt_r, keyboard.Key.alt_gr]:
                 state['alt'] = value
@@ -1943,8 +1953,9 @@ def start_dashboard_hotkey_listener():
 
         def on_press(key):
             set_mod(key, True)
-            if hasattr(key, 'char') and key.char:
-                pressed.add(key.char.lower())
+            main_key = _key_char(key)
+            if main_key:
+                pressed.add(main_key)
             cfg = parse_hotkey_combo(db.get_setting('hotkey_silent') or '<alt>+o')
             if matches(cfg):
                 _relaunch_engine()
