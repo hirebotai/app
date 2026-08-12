@@ -210,7 +210,7 @@ export function HeroSection() {
                     <p className="text-sm text-surface-400">Select your platform to download the Hirebotai installer.</p>
 
                     <div className="space-y-3">
-                      <a href={process.env.NEXT_PUBLIC_DOWNLOAD_URL || 'https://github.com/hirebotai/app/releases/download/v1.17.8.26/HireBotAi_Install_Package.zip'} onClick={() => { trackWindowsDownload(); setShowOsModal(false); }} className="flex items-center justify-between p-4 rounded-xl bg-surface-950 border border-surface-800 hover:border-brand-400 transition-all group">
+                      <a href={process.env.NEXT_PUBLIC_DOWNLOAD_URL || 'https://github.com/hirebotai/app/releases/download/v1.17.8.26/HirebotAI_Setup.exe'} onClick={() => { trackWindowsDownload(); setShowOsModal(false); }} className="flex items-center justify-between p-4 rounded-xl bg-surface-950 border border-surface-800 hover:border-brand-400 transition-all group">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center">
                             <Monitor className="w-5 h-5" />
