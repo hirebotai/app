@@ -258,6 +258,13 @@ const ApiKeysPage = {
     try {
       await Api.setSetting(provider.key, value);
       Toast.success(`${provider.name} API key saved`);
+      const card = document.querySelector(`.provider-card[data-provider="${providerId}"]`);
+      if (card) {
+        const status = card.querySelector('.key-status');
+        if (status) { status.textContent = 'Configured'; status.className = 'key-status configured'; }
+        const input = card.querySelector('input');
+        if (input) { input.value = ''; input.readOnly = true; }
+      }
       setTimeout(() => this.loadKeys(), 150);
     } catch (error) {
       Toast.error('Failed to save API key');

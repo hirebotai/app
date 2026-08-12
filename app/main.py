@@ -1234,6 +1234,7 @@ class FloatingHUD(QWidget):
         self.typer_thread = None
         self.visual_cache = {}
         self.is_minimal_mode = False
+        self.user_hidden_hud = False
         self.last_language = ""
         self.resume_language = ""
         # Persistent chat log shown in the HUD until Alt+C clears it (bounded to 40 entries)
@@ -2865,6 +2866,7 @@ class FloatingHUD(QWidget):
     @Slot()
     def show_peek(self):
         print("[HUD] Showing HUD peek overlay...")
+        self.user_hidden_hud = False
         # Showing an answer view clears the cheat-sheet toggle state, so a
         # subsequent Alt+N press shows the cheat sheet instead of hiding the answer.
         self._showing_cheat = False
@@ -2898,9 +2900,11 @@ class FloatingHUD(QWidget):
     def toggle_sticky_view(self):
         if self.isVisible():
             print("[HUD] Sticky toggle -> Hiding HUD...")
+            self.user_hidden_hud = True
             self.hide()
         else:
             print("[HUD] Sticky toggle -> Keeping HUD visible...")
+            self.user_hidden_hud = False
             self.show_peek()
 
     @Slot()
@@ -3099,15 +3103,16 @@ class GlobalHotkeyHandler:
         self.pressed_main.clear()
         self.pressed_mods.clear()
         self.triggered.clear()
+        screenshot_pending = getattr(self.hud, 'stealth_screenshot_pending', False)
+        text_attached = getattr(self.hud, 'stealth_text_attached', False)
         
-        if submit and (query_to_submit or getattr(self.hud, 'stealth_screenshot_pending', False)):
+        if submit and (query_to_submit or screenshot_pending or text_attached):
             self.hud.sig_submit_stealth.emit(query_to_submit)
         else:
             self.hud.sig_update_stealth.emit("")
         self.hud.chat_mode_active = False
-        if not submit:
-            self.hud.stealth_screenshot_pending = False
-            self.hud.stealth_text_attached = False
+        self.hud.stealth_screenshot_pending = False
+        self.hud.stealth_text_attached = False
         self.start()
 
     def on_stealth_press(self, key, injected=False):
