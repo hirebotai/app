@@ -611,12 +611,15 @@ class Api:
                 u = data.get('user', {})
                 db.save_session(
                     data['access_token'],
-                    data['refresh_token'],
+                    data.get('refresh_token'),
                     u.get('id'),
                     u.get('email'),
                     u.get('name'),
                 )
-                self._otp_session = None
+                try:
+                    sync_trial_start(db, force_refresh=True)
+                except Exception as e:
+                    print(f"[Trial] Post-login sync failed: {e}")
                 return {'success': True, 'user': u}
             return {'success': False, 'error': data.get('error') or 'Registration failed.'}
         except Exception as e:
@@ -644,6 +647,10 @@ class Api:
                     u.get('email'),
                     u.get('name'),
                 )
+                try:
+                    sync_trial_start(db, force_refresh=True)
+                except Exception as e:
+                    print(f"[Trial] Post-login sync failed: {e}")
                 return {'success': True, 'user': u}
             return {'success': False, 'error': data.get('error') or 'Invalid email or password.'}
         except Exception as e:
