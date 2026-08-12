@@ -6,7 +6,7 @@ from PyInstaller.utils.hooks import collect_data_files
 
 a = Analysis(
     ['dashboard.py'],
-    pathex=[],
+    pathex=['.'],
     binaries=[],
     datas=[
         ('dashboard', 'dashboard'),
