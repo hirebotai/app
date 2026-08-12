@@ -3471,7 +3471,7 @@ def run_engine():
     print("AI Vision & Audio Assistant HUD Running!")
     print("-" * 60)
     mod = _modifier_label()
-    print(f"• {mod} + O         : Silent activation (HUD stays hidden)")
+    print(f"• {mod} + O         : Start engine / Activate HUD")
     print(f"• {mod} + S         : Silent Screen capture & solve (HUD stays hidden)")
     print(f"• {mod} + A         : Toggle System Audio Listening (WASAPI Speaker Loopback)")
     print(f"• {mod} + I         : Toggle Interview Mode (Uses active resume for user POV answers)")

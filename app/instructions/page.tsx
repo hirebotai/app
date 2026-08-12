@@ -118,53 +118,69 @@ export default function InstructionsPage() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono">
-            <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
-              <div>
-                <div className="text-white font-bold">Alt + S</div>
-                <div className="text-surface-400 text-xs mt-0.5">Screen Capture &amp; Auto-Solve</div>
-              </div>
-              <span className="px-2 py-1 rounded bg-brand-500/20 text-brand-300 text-xs">Primary</span>
-            </div>
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + O</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Start Engine / Activate HUD</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 text-xs">Engine</span>
+             </div>
 
-            <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
-              <div>
-                <div className="text-white font-bold">Alt + Q</div>
-                <div className="text-surface-400 text-xs mt-0.5">Stealth Search / Follow-up Query</div>
-              </div>
-              <span className="px-2 py-1 rounded bg-purple-500/20 text-purple-300 text-xs">Follow-up</span>
-            </div>
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + E</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Exit Application</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-red-500/20 text-red-300 text-xs">Exit</span>
+             </div>
 
-            <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
-              <div>
-                <div className="text-white font-bold">Alt + A</div>
-                <div className="text-surface-400 text-xs mt-0.5">Toggle Live Audio Listening</div>
-              </div>
-              <span className="px-2 py-1 rounded bg-blue-500/20 text-blue-300 text-xs">Audio</span>
-            </div>
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + S</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Screen Capture &amp; Auto-Solve</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-brand-500/20 text-brand-300 text-xs">Primary</span>
+             </div>
 
-            <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
-              <div>
-                <div className="text-white font-bold">Alt + C</div>
-                <div className="text-surface-400 text-xs mt-0.5">Clear History &amp; Start New Chat</div>
-              </div>
-              <span className="px-2 py-1 rounded bg-red-500/20 text-red-300 text-xs">Clear</span>
-            </div>
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + Q</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Stealth Search / Follow-up Query</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-purple-500/20 text-purple-300 text-xs">Follow-up</span>
+             </div>
 
-            <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
-              <div>
-                <div className="text-white font-bold">Alt + H</div>
-                <div className="text-surface-400 text-xs mt-0.5">Hide / Show Floating HUD</div>
-              </div>
-              <span className="px-2 py-1 rounded bg-surface-800 text-surface-300 text-xs">Toggle</span>
-            </div>
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + A</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Toggle Live Audio Listening</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-blue-500/20 text-blue-300 text-xs">Audio</span>
+             </div>
 
-            <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
-              <div>
-                <div className="text-white font-bold">Alt + T</div>
-                <div className="text-surface-400 text-xs mt-0.5">Toggle Click-Through Ghost Mode</div>
-              </div>
-              <span className="px-2 py-1 rounded bg-surface-800 text-surface-300 text-xs">Ghost</span>
-            </div>
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + C</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Clear History &amp; Start New Chat</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-red-500/20 text-red-300 text-xs">Clear</span>
+             </div>
+
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + H</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Hide / Show Floating HUD</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-surface-800 text-surface-300 text-xs">Toggle</span>
+             </div>
+
+             <div className="p-4 rounded-xl bg-surface-950/80 border border-surface-800 flex items-center justify-between">
+               <div>
+                 <div className="text-white font-bold">Alt + T</div>
+                 <div className="text-surface-400 text-xs mt-0.5">Toggle Click-Through Ghost Mode</div>
+               </div>
+               <span className="px-2 py-1 rounded bg-surface-800 text-surface-300 text-xs">Ghost</span>
+             </div>
           </div>
         </div>
 
@@ -176,22 +192,30 @@ export default function InstructionsPage() {
               <CheckCircle2 className="w-5 h-5" /> What You SHOULD Do
             </h3>
             <ul className="space-y-3 text-sm text-surface-300">
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">•</span>
-                <span>Keep the question and code text clearly visible on your main screen before pressing <strong>Alt + S</strong>.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">•</span>
-                <span>Use <strong>Alt + C</strong> to clear chat memory whenever you start a completely new problem.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">•</span>
-                <span>Use <strong>Alt + Q</strong> when asking follow-up questions about the code currently in memory (e.g. &quot;convert to Java&quot;).</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">•</span>
-                <span>Test your setup in the <strong>Practice Room</strong> inside the app before joining live exams or interviews.</span>
-              </li>
+               <li className="flex items-start gap-2">
+                 <span className="text-emerald-400 font-bold">•</span>
+                 <span>Press <strong>Alt + O</strong> to start the stealth engine and activate the HUD before you begin.</span>
+               </li>
+               <li className="flex items-start gap-2">
+                 <span className="text-emerald-400 font-bold">•</span>
+                 <span>Keep the question and code text clearly visible on your main screen before pressing <strong>Alt + S</strong>.</span>
+               </li>
+               <li className="flex items-start gap-2">
+                 <span className="text-emerald-400 font-bold">•</span>
+                 <span>Use <strong>Alt + C</strong> to clear chat memory whenever you start a completely new problem.</span>
+               </li>
+               <li className="flex items-start gap-2">
+                 <span className="text-emerald-400 font-bold">•</span>
+                 <span>Use <strong>Alt + Q</strong> when asking follow-up questions about the code currently in memory (e.g. &quot;convert to Java&quot;).</span>
+               </li>
+               <li className="flex items-start gap-2">
+                 <span className="text-emerald-400 font-bold">•</span>
+                 <span>Press <strong>Alt + E</strong> to safely exit the app when you are done.</span>
+               </li>
+               <li className="flex items-start gap-2">
+                 <span className="text-emerald-400 font-bold">•</span>
+                 <span>Test your setup in the <strong>Practice Room</strong> inside the app before joining live exams or interviews.</span>
+               </li>
             </ul>
           </div>
 

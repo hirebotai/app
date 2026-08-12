@@ -9,7 +9,7 @@ const modKey = isMac ? 'option' : 'alt';
 
 const HotkeysPage = {
   hotkeys: [
-    { id: 'hotkey_silent', label: `${modLabel} + O`, desc: 'Silent background activation (HUD stays hidden)' },
+    { id: 'hotkey_silent', label: `${modLabel} + O`, desc: 'Start engine / Activate HUD' },
     { id: 'hotkey_capture', label: `${modLabel} + S`, desc: 'Capture screen & solve' },
     { id: 'hotkey_audio', label: `${modLabel} + A`, desc: isMac ? 'Toggle audio listening (system loopback)' : 'Toggle audio listening (WASAPI loopback)' },
     { id: 'hotkey_peek', label: `${modLabel} + H`, desc: 'Hold to view HUD (hides when released)' },

@@ -132,7 +132,7 @@ const shortcuts = [
   { keys: 'Alt + K', action: 'Sticky Keep Answer', category: 'HUD' },
   { keys: 'Alt + T', action: 'Ghost / Click-Through', category: 'Stealth' },
   { keys: 'Alt + N', action: 'Show Cheat Sheet', category: 'Prep' },
-  { keys: 'Alt + O', action: 'Silent Activate', category: 'Core' },
+  { keys: 'Alt + O', action: 'Start Engine / Activate HUD', category: 'Core' },
   { keys: 'Alt + Q', action: 'Manual Input to AI', category: 'Core' },
   { keys: 'Alt + P', action: 'Open Practice Room', category: 'Practice' },
   { keys: 'Alt + ↑', action: 'Scroll Answer Up', category: 'HUD' },

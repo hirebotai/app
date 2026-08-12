@@ -68,7 +68,7 @@ def get_device_hwid():
     try:
         import subprocess
         ps_cmd = "Get-CimInstance Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID"
-        output = subprocess.check_output(["powershell", "-NoProfile", "-Command", ps_cmd], text=True, timeout=10).strip()
+        output = subprocess.check_output(["powershell", "-NoProfile", "-Command", ps_cmd], text=True, timeout=10, creationflags=subprocess.CREATE_NO_WINDOW).strip()
         if output and len(output) > 10:
             return output
     except Exception as e:
@@ -76,7 +76,7 @@ def get_device_hwid():
     try:
         import subprocess
         cmd = 'wmic csproduct get uuid'
-        output = subprocess.check_output(cmd, shell=True).decode().split('\n')
+        output = subprocess.check_output(cmd, shell=True, creationflags=subprocess.CREATE_NO_WINDOW).decode().split('\n')
         if len(output) >= 2:
             uuid_str = output[1].strip()
             if uuid_str and len(uuid_str) > 10:

@@ -793,7 +793,7 @@ class Api:
         if sys.platform == 'win32':
             import subprocess
             try:
-                subprocess.Popen(['rundll32', 'url.dll,FileProtocolHandler', url])
+                subprocess.Popen(['rundll32', 'url.dll,FileProtocolHandler', url], creationflags=subprocess.CREATE_NO_WINDOW)
                 return True
             except Exception as e:
                 print(f"[Dashboard] open_url via rundll32 failed ({e}); falling back to webbrowser.")
@@ -2162,6 +2162,7 @@ def ensure_desktop_shortcut():
             ["powershell", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", ps],
             timeout=30,
             capture_output=True,
+            creationflags=subprocess.CREATE_NO_WINDOW,
         )
         db.set_setting('desktop_shortcut_created', '1')
         print(f"[Dashboard] Desktop shortcut created: {link_path}")
