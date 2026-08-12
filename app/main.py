@@ -1965,9 +1965,12 @@ class FloatingHUD(QWidget):
             target_pos = scrollbar.maximum() - int(self.text_display.height() * 0.3)
             scrollbar.setValue(max(0, target_pos))
             
-            # Reset listening badge
-            self.listening_badge.setText("Listening...")
-            self.listening_badge.setStyleSheet("color: #38BDF8; font-weight: bold; font-size: 13px; padding: 2px 10px;")
+            # Reset listening badge only when audio is active or in interview mode.
+            if getattr(self, 'interview_mode', False) or (self.audio_worker and self.audio_worker.isRunning()):
+                self.listening_badge.setText("Listening...")
+                self.listening_badge.setStyleSheet("color: #38BDF8; font-weight: bold; font-size: 13px; padding: 2px 10px;")
+            else:
+                self.listening_badge.hide()
             
             # In Interview Mode only: auto-grow/shrink the HUD to fit the latest message block
             if self.interview_mode:
