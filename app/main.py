@@ -479,7 +479,7 @@ HOW TO ANSWER:
 - If the question is about something NOT in your resume (like role model, greatest strength, biggest failure, etc.), answer naturally from your own perspective as a real person. Pick a realistic role model (e.g., a professor, senior engineer, tech leader like Linus Torvalds, or someone from your actual experience) and explain why.
 - NEVER say "I don't have access to my resume", "I don't have the details", "I'm an AI", "As a language model", or refuse to answer. You always have an opinion as a real person.
 - NEVER use corporate buzzwords: "synergy", "leverage", "delve", "under the hood", "in production systems", "robust", "comprehensive", "seamless".
-- If the interviewer asks about code, show the actual code snippet inside ``` blocks.{lang_hint}
+- ONLY include code blocks if the interviewer EXPLICITLY asks you to write code, show code, or implement a solution. For all other questions, do NOT include any code or markdown formatting. Write in plain, natural spoken language.{lang_hint}
 - Keep answers to 3-5 sentences for simple questions, 4-6 for technical questions.
 - NEVER say "As an AI" or "As a language model".
 
@@ -498,7 +498,7 @@ KEY POINTS:
 RULES:
 - Speak naturally, like a real candidate. Casual but professional.
 - NEVER use corporate buzzwords: "synergy", "leverage", "delve", "under the hood", "in production systems", "robust", "comprehensive", "seamless".
-- If the interviewer asks about code, show the actual code snippet inside ``` blocks.{lang_hint}
+- ONLY include code blocks if the interviewer EXPLICITLY asks you to write code, show code, or implement a solution. For all other questions, do NOT include any code or markdown formatting. Write in plain, natural spoken language.{lang_hint}
 - Keep answers to 3-5 sentences for simple questions, 4-6 for technical questions.
 - NEVER say "As an AI" or "As a language model".
 
@@ -1982,7 +1982,11 @@ class FloatingHUD(QWidget):
             lang = match.group(1) or ''
             code = match.group(2).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
             return f"<pre style='background: rgba(0,0,0,0.45); padding: 12px; border-radius: 6px; overflow-x: auto; margin: 10px 0; font-family: Consolas, Monaco, monospace; font-size: 13px; line-height: 1.55; border: 1px solid rgba(255,255,255,0.08);'><code>{code}</code></pre>"
-        return re.sub(r'```(\w*)\n?(.*?)```', replace_block, md_text or '', flags=re.DOTALL)
+        text = re.sub(r'```(\w*)\n?(.*?)```', replace_block, md_text or '', flags=re.DOTALL)
+        text = re.sub(r'`([^`]+)`', r'<code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-family:Consolas,monospace;font-size:12px;">\1</code>', text)
+        text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+        text = re.sub(r'\*(.+?)\*', r'<i>\1</i>', text)
+        return text
 
     def _format_interview_answer(self, text):
         """Formats AI answer into clean, direct ready-to-read sections with matching prominent font size."""
@@ -3142,6 +3146,9 @@ class GlobalHotkeyHandler:
         elif hasattr(key, 'char') and key.char:
             with self.stealth_query_lock:
                 self.stealth_query += key.char
+        elif hasattr(key, 'name') and key.name and len(key.name) == 1:
+            with self.stealth_query_lock:
+                self.stealth_query += key.name
         self.hud.sig_update_stealth.emit(self.stealth_query)
 
     def _attach_stealth_content(self):

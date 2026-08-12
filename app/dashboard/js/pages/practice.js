@@ -250,8 +250,11 @@ async startSession() {
     utterance.pitch = 1.0;
     
     const voices = window.speechSynthesis.getVoices();
-    let voice = voices.find(v => v.name === voiceName);
-    if (!voice && voiceName === "Default") {
+    let voice = null;
+    if (voiceName && voiceName !== 'Default') {
+      voice = voices.find(v => v.name === voiceName) || voices.find(v => v.name.includes(voiceName));
+    }
+    if (!voice) {
       voice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft'))) || voices[0];
     }
     if (voice) utterance.voice = voice;

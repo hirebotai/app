@@ -258,7 +258,7 @@ const ApiKeysPage = {
     try {
       await Api.setSetting(provider.key, value);
       Toast.success(`${provider.name} API key saved`);
-      await this.loadKeys();
+      setTimeout(() => this.loadKeys(), 150);
     } catch (error) {
       Toast.error('Failed to save API key');
     } finally {

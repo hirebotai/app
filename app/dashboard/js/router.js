@@ -121,6 +121,12 @@ var Router = class Router {
       }
     }
     
+    // Fallback: ensure the target page is visible after init/activate
+    const pageEl = document.getElementById(`page-${pageName}`);
+    if (pageEl && !pageEl.classList.contains('active')) {
+      pageEl.classList.add('active');
+    }
+    
     // Run after hooks
     for (const hook of this.afterHooks) {
       try {
