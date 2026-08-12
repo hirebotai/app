@@ -14,6 +14,7 @@ a = Analysis(
         ('../logo.png', '.'),
         ('../interviewer_avatar.jpg', '.'),
         ('./mac_support.py', 'macos'),
+        ('./Install_Instructions.txt', '.'),
     ] + collect_data_files('certifi'),
     hiddenimports=[
         'google.genai',
