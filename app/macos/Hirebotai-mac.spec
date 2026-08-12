@@ -46,7 +46,6 @@ exe = EXE(
     upx=False,
     console=False,
     argv_emulation=False,
-    target_arch='arm64',
     codesign_identity=None,
     entitlements_file=None,
 )

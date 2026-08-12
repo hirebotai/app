@@ -48,22 +48,25 @@ jobs:
       - name: Ad-hoc code sign
         run: codesign --force --deep --sign - dist/Hirebotai.app
 
+      - name: Remove quarantine metadata
+        run: xattr -cr dist/Hirebotai.app
+
       - name: Verify signatures
         run: |
           codesign -dv dist/Hirebotai.app 2>&1 | grep -E 'Identifier|Signature'
           lipo -info dist/Hirebotai.app/Contents/MacOS/Hirebotai
 
       - name: Zip the app
-        run: ditto -c -k --sequesterRsrc --keepParent dist/Hirebotai.app dist/Hirebotai-mac-universal2.zip
+        run: ditto -c -k --sequesterRsrc --keepParent dist/Hirebotai.app dist/Hirebotai-mac.zip
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Hirebotai-mac-universal2
-          path: dist/Hirebotai-mac-universal2.zip
+          name: Hirebotai-mac
+          path: dist/Hirebotai-mac.zip
 
       - name: Publish release on tag
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${GITHUB_REF_NAME}" dist/Hirebotai-mac-universal2.zip --generate-notes
+        run: gh release create "${GITHUB_REF_NAME}" dist/Hirebotai-mac.zip --generate-notes
