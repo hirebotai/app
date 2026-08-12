@@ -15,6 +15,13 @@ from database import DatabaseManager, DB_FILE, DATA_DIR, get_device_hwid, sync_t
 # Shared task-aware AI routing (model config, classification, provider interface)
 import ai_config
 
+# Imported at top level so PyInstaller bundles it in the frozen build.
+# (Importing inside __main__ makes it invisible to PyInstaller's analyzer.)
+try:
+    from main import run_engine
+except ImportError:
+    run_engine = None
+
 # Optional audio stack for practice voice input (soundcard + numpy + speech_recognition)
 HAS_AUDIO = importlib.util.find_spec("soundcard") is not None and importlib.util.find_spec("numpy") is not None
 
@@ -2325,8 +2332,8 @@ def main():
 if __name__ == '__main__':
     if '--engine' in sys.argv:
         # Background engine mode: run the stealth engine inside this same exe.
-        from main import run_engine
-        run_engine()
+        if run_engine is not None:
+            run_engine()
     elif '--relaunch' in sys.argv:
         # Persistent engine-relaunch hotkey listener (survives dashboard close).
         run_relauncher()
