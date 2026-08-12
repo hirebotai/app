@@ -322,9 +322,6 @@ def get_selected_text_uia():
     except Exception as e:
         print(f"[HUD] Selection capture error: {e}")
     return None
-    except Exception as e:
-        print(f"[UIA] Error getting selection: {e}")
-    return None
 
 
 
