@@ -10,7 +10,7 @@ import { Card, Button, Input } from '@/components/ui';
 import { validateLicenseKey } from '@/lib/utils';
 import { toast } from 'sonner';
 
-const DOWNLOAD_URL = process.env.NEXT_PUBLIC_DOWNLOAD_URL || 'https://github.com/hirebotai/app/releases/download/v1.17.8.26/HireBotAi_Install_Package.zip';
+const DOWNLOAD_URL = process.env.NEXT_PUBLIC_DOWNLOAD_URL || 'https://hirebotai.in/api/download/windows';
 const MAC_DOWNLOAD_URL = process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL || 'https://github.com/hirebotai/app/releases/download/v1.17.8.26/Hirebotai-mac.zip';
 const VERSION = 'v1.17.8.26';
 const SIZE = '85 MB';
