@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui';
@@ -20,10 +20,15 @@ const navigation = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { user, loading } = useSession();
   const router = useRouter();
+
+  if (pathname?.startsWith('/companion')) {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);

@@ -214,7 +214,7 @@ export default function CompanionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030508] text-[#F1F5F9] font-sans p-3 max-w-lg mx-auto flex flex-col justify-between">
+    <div className="-mt-16 min-h-screen bg-[#030508] text-[#F1F5F9] font-sans p-3 max-w-lg mx-auto flex flex-col justify-between">
       {/* Top Header */}
       <header className="sticky top-0 z-50 flex items-center justify-between p-3.5 bg-[#070B14]/90 border border-[#1E293B] rounded-2xl backdrop-blur-md mb-3 shadow-lg">
         <div className="flex items-center gap-2.5">

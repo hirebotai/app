@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Sparkles, Github, Twitter, MessageCircle, Mail, ArrowRight, Terminal, Bot } from 'lucide-react';
 
@@ -39,6 +40,11 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/companion')) {
+    return null;
+  }
+
   return (
     <footer className="bg-surface-950 border-t border-surface-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
